@@ -1,0 +1,24 @@
+enable
+configure terminal
+hostname ALS07-Meteorology
+no ip domain-lookup
+banner motd #Verboden toegang voor onbevoegde!#
+line console 0
+ exec-timeout 60 0
+ logging synchronous
+ exit
+enable secret class
+username user priv 15 password cisco
+aaa new-model
+aaa authentication login MGT local
+aaa authentication enable default enable
+line vty 0 4
+ transport input ssh
+ login authentication MGT
+ exec-timeout 60
+ logging synchronous
+ exit
+ip domain-name int.tropometrics.tech
+!crypto key zeroize rsa
+crypto key generate rsa
+2048
