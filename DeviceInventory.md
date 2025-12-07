@@ -3,8 +3,8 @@
 | Device Name | Device Model |
 |-------------|--------------|
 | Router0     | ISR4331      |
-| C-MLS0      | 3650 24P     |
-| C-MLS1      | 3650 24P     |
+| C-MLS01      | 3650 24P     |
+| C-MLS02      | 3650 24P     |
 | ALS01-Mgmt&Admin | 2960-24TT |
 | ALS02-Mgmt&Admin | 2960-24TT |
 | ALS03-Marketing&Sales | 2960-24TT |
