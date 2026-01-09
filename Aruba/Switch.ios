@@ -1,4 +1,7 @@
 enable
+delete vlan.dat
+
+
 configure terminal
 hostname Router1
 no ip domain-lookup
