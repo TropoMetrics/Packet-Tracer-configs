@@ -1,6 +1,6 @@
 enable
 configure terminal
-hostname Router0
+hostname Router1
 no ip domain-lookup
 banner motd #Verboden toegang voor onbevoegde!#
 line console 0
@@ -8,17 +8,18 @@ line console 0
  logging synchronous
  exit
 enable secret class
-username user priv 15 password cisco
+
+username user priv 15 password cisc
 aaa new-model
 aaa authentication login MGT local
 aaa authentication enable default enable
 line vty 0 4
- transport input ssh
- login authentication MGT
- exec-timeout 60
- logging synchronous
- exit
-ip domain-name int.tropometrics.tech
+transport input ssh
+login authentication MGT
+exec-timeout 60
+loggin synchronous
+exit
+ip domain-name hhs.nl
 !crypto key zeroize rsa
 crypto key generate rsa
 2048
