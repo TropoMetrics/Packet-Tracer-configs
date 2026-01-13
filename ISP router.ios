@@ -25,25 +25,35 @@ crypto key generate rsa
 2048
 
 interface Serial0/1/0
+description Link to Router 1 Delft
  ip address 145.34.44.1 255.255.255.252
  clock rate 64000
  no shutdown
+exit
 
 interface Serial0/1/1
+description Link to Router 2 Delft
  ip address 145.34.44.5 255.255.255.252
  clock rate 64000
  no shutdown
+exit
 
-interface Serial0/1/2
- ip address 145.34.44.9 255.255.255.252
+interface Serial0/2/0
+description Link to Router Aruba
+ ip address 145.34.46.1 255.255.255.252
  clock rate 64000
  no shutdown
+exit
 
-interface Serial0/1/3
- ip address 145.34.44.13 255.255.255.252
+interface Serial0/2/1
+description Link to Router Melbourne
+ ip address 145.34.47.1 255.255.255.252
  clock rate 64000
  no shutdown
+exit
 
-interface Loopback100
- ip address 100.100.100.100 255.255.255.255
- ipv6 address 2001:db8:ffff::100/128
+interface Loopback0
+description Internet Loopback
+ ip address 1.1.1.1 255.255.255.255
+ ipv6 address 2001:db8:ffff::1/128
+exit
