@@ -1,6 +1,6 @@
 enable
 configure terminal
-hostname Router2 Delft
+hostname Router2-Delft
 no ip domain-lookup
 banner motd #Verboden toegang voor onbevoegde!#
 line console 0

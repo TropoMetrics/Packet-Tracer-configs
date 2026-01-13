@@ -3,7 +3,7 @@ delete vlan.dat
 
 
 configure terminal
-hostname Switch Aruba
+hostname Switch-Aruba
 no ip domain-lookup
 banner motd #Verboden toegang voor onbevoegde!#
 line console 0

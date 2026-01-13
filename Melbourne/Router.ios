@@ -1,6 +1,6 @@
 enable
 configure terminal
-hostname Router Melbourne
+hostname Router-Melbourne
 no ip domain-lookup
 banner motd #Verboden toegang voor onbevoegde!#
 line console 0

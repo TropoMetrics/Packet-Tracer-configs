@@ -3,7 +3,7 @@ delete vlan.dat
 
 
 configure terminal
-hostname ALS3 Delft
+hostname ALS3-Delft
 no ip domain-lookup
 banner motd #Verboden toegang voor onbevoegde!#
 line console 0
