@@ -23,3 +23,17 @@ ip domain-name hhs.nl
 !crypto key zeroize rsa
 crypto key generate rsa
 2048
+
+interface Serial0/0/0
+ ip address 145.34.44.10 255.255.255.252
+ no shutdown
+
+interface GigabitEthernet0/0/0
+ ip address 10.20.10.1 255.255.255.0
+ no shutdown
+
+interface Loopback0
+ ip address 192.168.254.0 255.255.255.255
+
+interface Loopback10
+ ip address 172.16.0.2 255.255.255.0

@@ -23,3 +23,23 @@ ip domain-name hhs.nl
 !crypto key zeroize rsa
 crypto key generate rsa
 2048
+
+interface Serial0/1/0
+ ip address 145.34.44.1 255.255.255.252
+ clock rate 64000
+ no shutdown
+
+interface Serial0/1/1
+ ip address 145.34.44.5 255.255.255.252
+ clock rate 64000
+ no shutdown
+
+interface Serial0/1/2
+ ip address 145.34.44.9 255.255.255.252
+ clock rate 64000
+ no shutdown
+
+interface Serial0/1/3
+ ip address 145.34.44.13 255.255.255.252
+ clock rate 64000
+ no shutdown
