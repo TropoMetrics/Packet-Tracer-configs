@@ -1,6 +1,6 @@
 enable
 configure terminal
-hostname Router1
+hostname ISP Router
 no ip domain-lookup
 banner motd #Verboden toegang voor onbevoegde!#
 line console 0
