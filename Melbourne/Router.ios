@@ -24,6 +24,8 @@ ip domain-name hhs.nl
 crypto key generate rsa
 2048
 
+ipv6 unicast-routing
+
 interface Serial0/2/1
  ip address 145.34.47.2 255.255.255.252
  no shutdown

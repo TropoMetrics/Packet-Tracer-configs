@@ -62,3 +62,10 @@ interface Loopback0
  ip address 192.168.255.50 255.255.255.255
  ipv6 address 2001:f187:0:1::50/128
 exit
+
+router ospf 1
+ network 192.168.0.0 0.0.0.3 area 0
+ network 192.168.0.4 0.0.0.3 area 0
+ network 192.168.0.20 0.0.0.3 area 0
+ network 192.168.255.50 0.0.0.0 area 0
+exit
