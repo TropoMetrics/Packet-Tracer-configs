@@ -24,24 +24,34 @@ ip domain-name hhs.nl
 crypto key generate rsa
 2048
 
-interface GigabitEthernet0/0/1
- ip address 192.168.0.5 255.255.255.252
- no shutdown
+ipv6 unicast-routing
 
-interface GigabitEthernet0/0/2
+interface GigabitEthernet0/0/0
+description Link to MLS 2 Delft
  ip address 192.168.0.13 255.255.255.252
  no shutdown
+exit
+
+interface GigabitEthernet0/0/1
+description Link to MLS 1 Delft
+ ip address 192.168.0.5 255.255.255.252
+ no shutdown
+exit
 
 interface Serial0/1/0
+description Link to ISP
  ip address 145.34.44.6 255.255.255.252
  no shutdown
+exit
 
 interface Serial0/1/1
- ip address 192.168.1.2 255.255.255.252
+description Link to Router 1 Delft
+ ip address 192.168.1.18 255.255.255.252
  no shutdown
+exit
 
-interface Loopback0
+interface Loopback 0
+description Management interface
  ip address 192.168.255.1 255.255.255.255
-
-interface Loopback10
- ip address 172.16.0.2 255.255.255.0
+ ipv6 address 2001:f187:0:1::1/128
+exit

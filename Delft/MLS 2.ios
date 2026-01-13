@@ -28,27 +28,37 @@ crypto key generate rsa
 2048
 
 ip routing
+ipv6 unicast-routing
 
-
-interface GigabitEthernet1/0/21
+interface GigabitEthernet1/0/1
+description Link to Router 2 Delft
  no switchport
  ip address 192.168.0.10 255.255.255.252
  no shutdown
+exit
 
-interface GigabitEthernet1/0/22
+interface GigabitEthernet1/0/2
+description Link to Router 2 Delft
  no switchport
  ip address 192.168.0.14 255.255.255.252
  no shutdown
+exit
 
-interface range GigabitEthernet1/0/23 - 24
+interface range GigabitEthernet1/0/3-4
+description Etherchannel to MLS 1 Delft
  no switchport
  channel-group 10 mode active
  no shutdown
+exit
 
-interface Port-channel10
+interface Port-channel 10
+description Etherchannel ip to MLS 1 Delft
  no switchport
  ip address 192.168.0.22 255.255.255.252
  no shutdown
+exit
 
 interface Loopback0
  ip address 192.168.255.51 255.255.255.255
+ ipv6 address 2001:f187:0:1::51/128
+exit
