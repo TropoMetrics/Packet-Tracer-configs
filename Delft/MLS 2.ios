@@ -26,3 +26,29 @@ ip domain-name hhs.nl
 !crypto key zeroize rsa
 crypto key generate rsa
 2048
+
+ip routing
+
+
+interface GigabitEthernet1/0/21
+ no switchport
+ ip address 192.168.0.10 255.255.255.252
+ no shutdown
+
+interface GigabitEthernet1/0/22
+ no switchport
+ ip address 192.168.0.14 255.255.255.252
+ no shutdown
+
+interface range GigabitEthernet1/0/23 - 24
+ no switchport
+ channel-group 10 mode active
+ no shutdown
+
+interface Port-channel10
+ no switchport
+ ip address 192.168.0.22 255.255.255.252
+ no shutdown
+
+interface Loopback0
+ ip address 192.168.255.51 255.255.255.255
