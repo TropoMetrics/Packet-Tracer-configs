@@ -36,4 +36,4 @@ interface Loopback0
  ip address 192.168.254.0 255.255.255.255
 
 interface Loopback10
- ip address 172.16.0.2 255.255.255.0
+ ip address 172.16.0.3 255.255.255.0
