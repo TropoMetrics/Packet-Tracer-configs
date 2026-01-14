@@ -93,6 +93,54 @@ name DMZnet
  vrrp 1090 priority 110
 exit
 
+interface GigabitEthernet1/0/24
+description Link to ALS1
+switchport
+switchport mode access
+switchport access vlan 1010
+no shutdown
+exit
+
+interface GigabitEthernet1/0/23
+description Link to ALS2
+switchport
+switchport mode access
+switchport access vlan 1020
+no shutdown
+exit
+
+interface GigabitEthernet1/0/22
+description Link to ALS3
+switchport
+switchport mode access
+switchport access vlan 1030
+no shutdown
+exit
+
+interface GigabitEthernet1/0/21
+description Link to ALS4
+switchport
+switchport mode trunk
+switchport trunk allowed vlan 1040,1050,1060
+no shutdown
+exit
+
+interface GigabitEthernet1/0/20
+description Link to ALS5
+switchport
+switchport mode trunk
+switchport trunk allowed vlan 1070,1080,1090
+no shutdown
+exit
+
+interface GigabitEthernet1/0/19
+description Link to ALS6
+switchport
+switchport mode trunk
+switchport trunk allowed vlan 1070,1080,1090
+no shutdown
+exit
+
 interface GigabitEthernet1/0/1
 description Link to Router 2 Delft
  no switchport
