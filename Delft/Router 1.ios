@@ -30,7 +30,7 @@ ipv6 unicast-routing
 ip access-list standard NAT-ACL
  deny 145.34.44.0 0.0.0.255 
  permit any
-ip nat inside source list 10 interface Serial0/1/0 overload
+ip nat inside source list NAT-ACL interface Serial0/1/0 overload
 
 interface GigabitEthernet0/0/0
 description Link to MLS 1 Delft
