@@ -29,18 +29,24 @@ ipv6 unicast-routing
 interface GigabitEthernet0/0/0
 description Link to MLS 1 Delft
  ip address 192.168.0.1 255.255.255.252
+ ipv6 enable
+ ipv6 ospf 1 area 0
  no shutdown
 exit
 
 interface GigabitEthernet0/0/1
 description Link to MLS 2 Delft
  ip address 192.168.0.9 255.255.255.252
+ ipv6 enable
+ ipv6 ospf 1 area 0
  no shutdown
 exit
 
 interface Serial0/1/0
 description Link to ISP
  ip address 145.34.44.2 255.255.255.252
+ ipv6 enable
+ ipv6 ospf 1 area 0
  no shutdown
 exit
 
@@ -48,6 +54,8 @@ interface Serial0/1/1
 description Link to Router 2 Delft
  clock rate 64000
  ip address 192.168.0.17 255.255.255.252
+ ipv6 enable
+ ipv6 ospf 1 area 0
  no shutdown
 exit
 
@@ -60,6 +68,10 @@ exit
 router ospf 1
  network 192.168.0.0 0.0.0.3 area 0
  network 192.168.0.8 0.0.0.3 area 0
- network 192.168.0.20 0.0.0.3 area 0
- network 192.168.255.50 0.0.0.0 area 0
+ network 192.168.0.16 0.0.0.3 area 0
+ network 192.168.255.0 0.0.0.0 area 0
+exit
+
+ipv6 router ospf 1
+ router-id 192.168.255.0
 exit

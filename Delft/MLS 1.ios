@@ -27,6 +27,42 @@ ip domain-name hhs.nl
 crypto key generate rsa
 2048
 
+interface vlan 1010
+name Management
+exit
+
+interface vlan 1020
+name Marketing
+exit
+
+interface vlan 1030
+name Support
+exit
+
+interface vlan 1040
+name IT-Dienst
+exit
+
+interface vlan 1050
+name Application-Development
+exit
+
+interface vlan 1060
+name Meteo-expertise
+exit
+
+interface vlan 1070
+name Calcnet
+exit
+
+interface vlan 1080
+name Intranet
+exit
+
+interface vlan 1090
+name DMZnet
+exit
+
 ip routing  
 ipv6 unicast-routing
 
@@ -34,6 +70,8 @@ interface GigabitEthernet1/0/1
 description Link to Router 2 Delft
  no switchport
  ip address 192.168.0.2 255.255.255.252
+ ipv6 enable
+ ipv6 ospf 1 area 0
  no shutdown
 exit
 
@@ -41,6 +79,8 @@ interface GigabitEthernet1/0/2
 description Link to Router 1 Delft
  no switchport
  ip address 192.168.0.6 255.255.255.252
+ ipv6 enable
+ ipv6 ospf 1 area 0
  no shutdown
 exit
 
@@ -55,6 +95,8 @@ interface Port-channel 10
 description Etherchannel ip to MLS 1 Delft
  no switchport
  ip address 192.168.0.21 255.255.255.252
+ ipv6 enable
+ ipv6 ospf 1 area 0
  no shutdown
 exit
 
@@ -68,4 +110,8 @@ router ospf 1
  network 192.168.0.4 0.0.0.3 area 0
  network 192.168.0.20 0.0.0.3 area 0
  network 192.168.255.50 0.0.0.0 area 0
+exit
+
+ipv6 router ospf 1
+ router-id 192.168.255.50
 exit

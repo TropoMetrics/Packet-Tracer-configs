@@ -34,6 +34,8 @@ interface GigabitEthernet1/0/1
 description Link to Router 2 Delft
  no switchport
  ip address 192.168.0.10 255.255.255.252
+ ipv6 enable
+ ipv6 ospf 1 area 0
  no shutdown
 exit
 
@@ -41,6 +43,8 @@ interface GigabitEthernet1/0/2
 description Link to Router 2 Delft
  no switchport
  ip address 192.168.0.14 255.255.255.252
+ ipv6 enable
+ ipv6 ospf 1 area 0
  no shutdown
 exit
 
@@ -55,6 +59,8 @@ interface Port-channel 10
 description Etherchannel ip to MLS 1 Delft
  no switchport
  ip address 192.168.0.22 255.255.255.252
+ ipv6 enable
+ ipv6 ospf 1 area 0
  no shutdown
 exit
 
@@ -68,4 +74,8 @@ router ospf 1
  network 192.168.0.12 0.0.0.3 area 0
  network 192.168.0.20 0.0.0.3 area 0
  network 192.168.255.51 0.0.0.0 area 0
+exit
+
+ipv6 router ospf 1
+ router-id 192.168.255.51
 exit
