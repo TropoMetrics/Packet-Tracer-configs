@@ -71,6 +71,7 @@ ipv6 enable
 exit
 
 router ospf 1
+default-information originate
  network 192.168.0.0 0.0.0.3 area 0
  network 192.168.0.8 0.0.0.3 area 0
  network 192.168.0.16 0.0.0.3 area 0
@@ -79,14 +80,11 @@ exit
 
 ipv6 router ospf 1
  router-id 192.168.255.0
+ default-information originate
 exit
 
-router bgp 65001
- bgp log-neighbor-changes
- neighbor 145.34.46.1 remote-as 65000
- neighbor 145.34.46.1 description Link to ISP
- network 10.10.90.0 mask 255.255.255.0
-exit
+ip route 0.0.0.0 0.0.0.0 145.34.44.1
+ipv6 route ::/0 Serial0/1/0 fe80::10
 
 router bgp 110
 bgp log-neighbor-changes
