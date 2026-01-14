@@ -27,44 +27,71 @@ ip domain-name hhs.nl
 crypto key generate rsa
 2048
 
+ip routing  
+ipv6 unicast-routing
+
 interface vlan 1010
 name Management
+ ip address 10.10.10.2 255.255.255.0
+ vrrp 1010 ip 10.10.10.1
+ vrrp 1010 priority 110
 exit
 
 interface vlan 1020
 name Marketing
+ ip address 10.10.20.2 255.255.255.0
+ vrrp 1020 ip 10.10.20.1
+ vrrp 1020 priority 110
 exit
 
 interface vlan 1030
 name Support
+ ip address 10.10.30.2 255.255.255.0
+ vrrp 1030 ip 10.10.30.1
+ vrrp 1030 priority 110
 exit
 
 interface vlan 1040
 name IT-Dienst
+ ip address 10.10.40.2 255.255.255.0
+ vrrp 1040 ip 10.10.40.1
+ vrrp 1040 priority 110
 exit
 
 interface vlan 1050
 name Application-Development
+ ip address 10.10.50.2 255.255.255.0
+ vrrp 1050 ip 10.10.50.1
+ vrrp 1050 priority 110
 exit
 
 interface vlan 1060
 name Meteo-expertise
+ ip address 10.10.60.2 255.255.255.0
+ vrrp 1060 ip 10.10.60.1
+ vrrp 1060 priority 110
 exit
 
 interface vlan 1070
 name Calcnet
+ ip address 10.10.70.2 255.255.255.0
+ vrrp 1070 ip 10.10.70.1
+ vrrp 1070 priority 90
 exit
 
 interface vlan 1080
 name Intranet
+ ip address 10.10.80.2 255.255.255.0
+ vrrp 1080 ip 10.10.80.1
+ vrrp 1080 priority 90
 exit
 
 interface vlan 1090
 name DMZnet
+ ip address 10.10.90.2 255.255.255.0
+ vrrp 1090 ip 10.10.90.1
+ vrrp 1090 priority 90
 exit
-
-ip routing  
-ipv6 unicast-routing
 
 interface GigabitEthernet1/0/1
 description Link to Router 2 Delft
