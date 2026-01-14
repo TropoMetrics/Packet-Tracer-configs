@@ -26,3 +26,16 @@ ip domain-name hhs.nl
 !crypto key zeroize rsa
 crypto key generate rsa
 2048
+
+interface vlan 1040
+name IT-Dienst
+exit
+
+interface vlan 1050
+name Application-Development
+exit
+
+interface vlan 1060
+name Meteo-expertise
+exit
+

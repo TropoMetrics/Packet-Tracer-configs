@@ -26,3 +26,15 @@ ip domain-name hhs.nl
 !crypto key zeroize rsa
 crypto key generate rsa
 2048
+
+interface vlan 1070
+name Calcnet
+exit
+
+interface vlan 1080
+name Intranet
+exit
+
+interface vlan 1090
+name DMZnet
+exit

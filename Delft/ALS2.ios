@@ -26,3 +26,14 @@ ip domain-name hhs.nl
 !crypto key zeroize rsa
 crypto key generate rsa
 2048
+
+interface vlan 1010
+name Management
+ ip address 10.10.10.2 255.255.255.0
+ vrrp 1010 ip 10.10.10.1
+ vrrp 1010 priority 110
+exit
+
+interface vlan 1020
+name Marketing
+exit
