@@ -31,6 +31,7 @@ description Link to MLS 2 Delft
  ip address 192.168.0.13 255.255.255.252
  ipv6 enable
  ipv6 ospf 1 area 0
+  ip nat inside
  no shutdown
 exit
 
@@ -39,6 +40,7 @@ description Link to MLS 1 Delft
  ip address 192.168.0.5 255.255.255.252
  ipv6 enable
  ipv6 ospf 1 area 0
+  ip nat inside
  no shutdown
 exit
 
@@ -47,6 +49,7 @@ description Link to ISP
  ip address 145.34.44.6 255.255.255.252
  ipv6 enable
  ipv6 ospf 1 area 0
+ ip nat outside
  no shutdown
 exit
 
