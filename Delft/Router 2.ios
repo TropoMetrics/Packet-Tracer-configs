@@ -25,7 +25,7 @@ crypto key generate rsa
 2048
 
 ipv6 unicast-routing
-access-list 10 
+ip access-list standard NAT-ACL
  deny 145.34.44.0 0.0.0.255 
  permit any any
 
