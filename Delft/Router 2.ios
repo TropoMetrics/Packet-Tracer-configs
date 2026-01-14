@@ -25,7 +25,10 @@ crypto key generate rsa
 2048
 
 ipv6 unicast-routing
-access-list 10 permit 10.0.0.0 0.255.255.255
+access-list 10 
+ deny 145.34.44.0 0.0.0.255 
+ permit any any
+
 ip nat inside source list 10 interface Serial0/1/0 overload
 interface GigabitEthernet0/0/0
 description Link to MLS 2 Delft
