@@ -80,3 +80,33 @@ exit
 ipv6 router ospf 1
  router-id 192.168.255.0
 exit
+
+router bgp 65001
+ bgp log-neighbor-changes
+ neighbor 145.34.46.1 remote-as 65000
+ neighbor 145.34.46.1 description Link to ISP
+ network 10.10.90.0 mask 255.255.255.0
+exit
+
+router bgp 110
+bgp log-neighbor-changes
+no synchronisation
+ ! IPv4
+ neighbor 145.34.44.1 remote-as 100
+ network 145.34.44.0 mask 255.255.255.0
+
+ ! IPv6
+ address-family ipv6
+  neighbor fe80::10 remote-as 100
+  neighbor fe80::10 update-source Serial0/1/0
+  network 2001:f187:0:1010::/64
+  network 2001:f187:0:1020::/64
+  network 2001:f187:0:1030::/64
+  network 2001:f187:0:1040::/64
+  network 2001:f187:0:1050::/64
+  network 2001:f187:0:1060::/64
+  network 2001:f187:0:1070::/64
+  network 2001:f187:0:1080::/64
+  network 2001:f187:0:1090::/64
+ exit
+exit

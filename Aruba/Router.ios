@@ -47,3 +47,6 @@ ipv6 enable
  ip address 192.168.254.0 255.255.255.255
  ipv6 address 2001:f187:1:1::0/128
 exit
+
+ip route 0.0.0.0 0.0.0.0 145.34.46.1
+ipv6 route ::/0 Serial0/2/0 fe80::30
