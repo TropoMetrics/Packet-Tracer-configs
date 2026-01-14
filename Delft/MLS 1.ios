@@ -124,7 +124,7 @@ interface GigabitEthernet1/0/24
 description Link to ALS1
 switchport
 switchport mode access
-switchport access vlan 1010
+switchport access vlan 110
 no shutdown
 exit
 
@@ -132,7 +132,7 @@ interface GigabitEthernet1/0/23
 description Link to ALS2
 switchport
 switchport mode access
-switchport access vlan 1020
+switchport access vlan 120
 no shutdown
 exit
 
@@ -140,7 +140,7 @@ interface GigabitEthernet1/0/22
 description Link to ALS3
 switchport
 switchport mode access
-switchport access vlan 1030
+switchport access vlan 130
 no shutdown
 exit
 
@@ -148,7 +148,7 @@ interface GigabitEthernet1/0/21
 description Link to ALS4
 switchport
 switchport mode trunk
-switchport trunk allowed vlan 1040,1050,1060
+switchport trunk allowed vlan 140,150,160
 no shutdown
 exit
 
@@ -156,7 +156,7 @@ interface GigabitEthernet1/0/20
 description Link to ALS5
 switchport
 switchport mode trunk
-switchport trunk allowed vlan 1070,1080,1090
+switchport trunk allowed vlan 170,180,190
 no shutdown
 exit
 
@@ -164,7 +164,7 @@ interface GigabitEthernet1/0/19
 description Link to ALS6
 switchport
 switchport mode trunk
-switchport trunk allowed vlan 1070,1080,1090
+switchport trunk allowed vlan 170,180,190
 no shutdown
 exit
 
@@ -195,7 +195,6 @@ exit
 
 interface Port-channel 10
 description Etherchannel ip to MLS 1 Delft
- no switchport
  ip address 192.168.0.21 255.255.255.252
  ipv6 enable
  ipv6 ospf 1 area 0
