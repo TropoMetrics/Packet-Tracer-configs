@@ -27,6 +27,6 @@ ip domain-name hhs.nl
 crypto key generate rsa
 2048
 
-interface vlan 1030
+vlan 130
 name Support
 exit
