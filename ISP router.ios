@@ -26,6 +26,7 @@ crypto key generate rsa
 
 interface Serial0/1/0
 description Link to Router 1 Delft 1
+ipv6 enable
  ip address 145.34.44.1 255.255.255.252
  ipv6 address fe80::10 link-local
  clock rate 64000
@@ -34,6 +35,7 @@ exit
 
 interface Serial0/1/1
 description Link to Router 2 Delft 2
+ipv6 enable
  ip address 145.34.44.5 255.255.255.252
  ipv6 address fe80::20 link-local
  clock rate 64000
@@ -42,6 +44,7 @@ exit
 
 interface Serial0/2/0
 description Link to Router Aruba
+ipv6 enable
  ip address 145.34.46.1 255.255.255.252
  ipv6 address fe80::30 link-local
  clock rate 64000
@@ -50,6 +53,7 @@ exit
 
 interface Serial0/2/1
 description Link to Router Melbourne
+ipv6 enable
  ip address 145.34.47.1 255.255.255.252
  ipv6 address fe80::40 link-local
  clock rate 64000

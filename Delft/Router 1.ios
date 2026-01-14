@@ -49,6 +49,7 @@ description Link to ISP
  ip address 145.34.44.2 255.255.255.252
  ipv6 enable
  ipv6 ospf 1 area 0
+ ipv6 address fe80::11 link-local
  ip nat outside
  no shutdown
 exit
@@ -64,6 +65,7 @@ exit
 
 interface Loopback0
 description Management interface
+ipv6 enable
  ip address 192.168.255.0 255.255.255.255
  ipv6 address 2001:f187:0:1::0/128
 exit

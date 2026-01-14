@@ -176,6 +176,8 @@ description Etherchannel ip to MLS 1 Delft
 exit
 
 interface Loopback0
+description Management interface
+ipv6 enable
  ip address 192.168.255.51 255.255.255.255
  ipv6 address 2001:f187:0:1::51/128
 exit
