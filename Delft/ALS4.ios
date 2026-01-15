@@ -39,3 +39,14 @@ vlan 160
 name Meteo-expertise
 exit
 
+interface GigabitEthernet0/1
+switchport mode trunk
+switchport trunk allowed vlan 140,150,160
+no shutdown
+exit
+
+interface GigabitEthernet0/2
+switchport mode trunk
+switchport trunk allowed vlan 140,150,160
+no shutdown
+exit

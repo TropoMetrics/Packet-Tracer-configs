@@ -30,3 +30,15 @@ crypto key generate rsa
 vlan 110
 name Management
 exit
+
+interface GigabitEthernet0/1
+ switchport mode access
+ switchport access vlan 110
+ no shutdown
+exit
+
+interface GigabitEthernet0/2
+ switchport mode access
+ switchport access vlan 110
+ no shutdown
+exit

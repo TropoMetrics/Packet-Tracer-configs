@@ -68,56 +68,74 @@ exit
 
 interface vlan 110
  ip address 10.10.10.2 255.255.255.0
- vrrp 110 ip 10.10.10.1
- vrrp 110 priority 110
+! vrrp 110 ip 10.10.10.1
+! vrrp 110 priority 110
+ standby 110 ip 10.10.10.1
+ standby 110 priority 110
 exit
 
 interface vlan 120
  ip address 10.10.20.2 255.255.255.0
- vrrp 120 ip 10.10.20.1
- vrrp 120 priority 110
+! vrrp 120 ip 10.10.20.1
+! vrrp 120 priority 110
+ standby 120 ip 10.10.20.1
+ standby 120 priority 110
 exit
 
 interface vlan 130
  ip address 10.10.30.2 255.255.255.0
- vrrp 130 ip 10.10.30.1
- vrrp 130 priority 110
+! vrrp 130 ip 10.10.30.1
+! vrrp 130 priority 110
+ standby 130 ip 10.10.30.1
+ standby 130 priority 110
 exit
 
 interface vlan 140
  ip address 10.10.40.2 255.255.255.0
- vrrp 140 ip 10.10.40.1
- vrrp 140 priority 110
+! vrrp 140 ip 10.10.40.1
+! vrrp 140 priority 110
+ standby 140 ip 10.10.40.1
+ standby 140 priority 110
 exit
 
 interface vlan 150
  ip address 10.10.50.2 255.255.255.0
- vrrp 150 ip 10.10.50.1
- vrrp 150 priority 110
+! vrrp 150 ip 10.10.50.1
+! vrrp 150 priority 110
+ standby 150 ip 10.10.50.1
+ standby 150 priority 110
 exit
 
 interface vlan 160
  ip address 10.10.60.2 255.255.255.0
- vrrp 160 ip 10.10.60.1
- vrrp 160 priority 110
+! vrrp 160 ip 10.10.60.1
+! vrrp 160 priority 110
+ standby 160 ip 10.10.60.1
+ standby 160 priority 110
 exit
 
 interface vlan 170
  ip address 10.10.70.2 255.255.255.0
- vrrp 170 ip 10.10.70.1
- vrrp 170 priority 90
+! vrrp 170 ip 10.10.70.1
+! vrrp 170 priority 90
+ standby 170 ip 10.10.70.1
+ standby 170 priority 90
 exit
 
 interface vlan 180
  ip address 10.10.80.2 255.255.255.0
- vrrp 180 ip 10.10.80.1
- vrrp 180 priority 90
+! vrrp 180 ip 10.10.80.1
+! vrrp 180 priority 90
+ standby 180 ip 10.10.80.1
+ standby 180 priority 90
 exit
 
 interface vlan 190
  ip address 10.10.90.2 255.255.255.0
- vrrp 190 ip 10.10.90.1
- vrrp 190 priority 90
+! vrrp 190 ip 10.10.90.1
+! vrrp 190 priority 90
+ standby 190 ip 10.10.90.1
+ standby 190 priority 90
 exit
 
 interface GigabitEthernet1/0/24

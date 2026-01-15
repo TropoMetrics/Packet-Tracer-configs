@@ -30,3 +30,15 @@ crypto key generate rsa
 vlan 130
 name Support
 exit
+
+interface GigabitEthernet0/1
+ switchport mode access
+ switchport access vlan 130
+ no shutdown
+exit
+
+interface GigabitEthernet0/2
+ switchport mode access
+ switchport access vlan 130
+ no shutdown
+exit

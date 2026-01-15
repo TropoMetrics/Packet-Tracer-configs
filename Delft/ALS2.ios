@@ -30,3 +30,15 @@ crypto key generate rsa
 vlan 120
 name Marketing
 exit
+
+interface GigabitEthernet0/1
+ switchport mode access
+ switchport access vlan 120
+ no shutdown
+exit
+
+interface GigabitEthernet0/2
+ switchport mode access
+ switchport access vlan 120
+ no shutdown
+exit
