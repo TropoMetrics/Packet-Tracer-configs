@@ -52,5 +52,7 @@ interface FastEthernet0/2
 exit
 
 interface range FastEthernet0/3-24
+switchport mode access
+switchport access vlan 999
 shutdown
 exit

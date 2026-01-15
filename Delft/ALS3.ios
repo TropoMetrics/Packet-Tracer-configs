@@ -44,13 +44,21 @@ exit
 interface FastEthernet0/1
  switchport mode access
  switchport access vlan 130
+ switchport port-security
+ switchport port-security maximum 1
+ switchport port-security mac-address sticky
 exit
 
 interface FastEthernet0/1
  switchport mode access
  switchport access vlan 130
+ switchport port-security
+ switchport port-security maximum 1
+ switchport port-security mac-address sticky
 exit
 
 interface range FastEthernet0/3-24
+switchport mode access
+switchport access vlan 999
 shutdown
 exit

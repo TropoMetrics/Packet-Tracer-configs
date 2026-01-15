@@ -54,3 +54,9 @@ switchport mode trunk
 switchport trunk allowed vlan 170,180,190
 no shutdown
 exit
+
+interface range FastEthernet0/2-24
+switchport mode access
+switchport access vlan 999
+shutdown
+exit
