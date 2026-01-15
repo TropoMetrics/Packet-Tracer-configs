@@ -44,7 +44,7 @@ ipv6 enable
  no shutdown
 exit
 
-interface Serial0/2/0
+interface GigabitEthernet0/0/0
 description Link to Router Aruba
 ipv6 enable
  ip address 145.34.46.1 255.255.255.252
@@ -53,7 +53,7 @@ ipv6 enable
  no shutdown
 exit
 
-interface Serial0/2/1
+interface GigabitEthernet0/0/1
 description Link to Router Melbourne
 ipv6 enable
  ip address 145.34.47.1 255.255.255.252
