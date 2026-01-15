@@ -49,13 +49,6 @@ switchport trunk allowed vlan 140,150,160
 no shutdown
 exit
 
-! Ongebruikte poorten uitschakelen en in blackhole vlan
-interface range FastEthernet0/5-24
-switchport mode access
-switchport access vlan 999
-shutdown
-exit
-
 interface FastEthernet0/1
 switchport mode access
 switchport access vlan 140
@@ -87,4 +80,10 @@ switchport access vlan 160
 switchport port-security
 switchport port-security maximum 1
 switchport port-security mac-address sticky
+exit
+
+interface range FastEthernet0/5-24
+switchport mode access
+switchport access vlan 999
+shutdown
 exit

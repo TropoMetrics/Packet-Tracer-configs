@@ -72,6 +72,7 @@ exit
 
 interface vlan 999
 shutdown
+exit
 
 exit
 interface vlan 110
