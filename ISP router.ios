@@ -1,6 +1,6 @@
 enable
 configure terminal
-hostname ISP Router
+hostname ISP-Router
 no ip domain-lookup
 banner motd #Verboden toegang voor onbevoegde!#
 line console 0
@@ -23,6 +23,8 @@ ip domain-name hhs.nl
 !crypto key zeroize rsa
 crypto key generate rsa
 2048
+
+ipv6 unicast-routing
 
 interface Serial0/1/0
 description Link to Router 1 Delft 1
@@ -71,18 +73,16 @@ ipv6 route 2001:f187:0:3010::/64 Serial0/2/1 fe80::41
 
 router bgp 100
 bgp log-neighbor-changes
-no synchronisation
+no synchronization
  ! IPv4
  neighbor 145.34.44.2 remote-as 110
  neighbor 145.34.44.6 remote-as 110
  network 1.1.1.1 mask 255.255.255.255
+ neighbor fe80::11%Serial0/1/0 remote-as 110
+ neighbor fe80::21%Serial0/1/1 remote-as 110
 
  ! IPv6
  address-family ipv6
-  neighbor fe80::11 remote-as 110
-  neighbor fe80::11 update-source Serial0/1/0
-  neighbor fe80::21 remote-as 110
-  neighbor fe80::21 update-source Serial0/1/1
   network 2001:db8:ffff::1/128
  exit
 exit
