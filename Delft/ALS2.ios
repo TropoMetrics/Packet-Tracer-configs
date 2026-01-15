@@ -31,6 +31,10 @@ vlan 120
 name Marketing
 exit
 
+vlan 999
+name BLACKHOLE
+exit
+
 interface range GigabitEthernet0/1-2
  switchport mode access
  switchport access vlan 120
