@@ -31,14 +31,17 @@ vlan 120
 name Marketing
 exit
 
-interface GigabitEthernet0/1
+interface range GigabitEthernet0/1-2
  switchport mode access
  switchport access vlan 120
  no shutdown
 exit
 
-interface GigabitEthernet0/2
+interface FastEthernet0/1
  switchport mode access
  switchport access vlan 120
- no shutdown
+exit
+
+interface range FastEthernet0/3-24
+shutdown
 exit

@@ -231,6 +231,15 @@ router ospf 1
  network 192.168.0.4 0.0.0.3 area 0
  network 192.168.0.20 0.0.0.3 area 0
  network 192.168.255.50 0.0.0.0 area 0
+ network 10.10.10.0 255.255.255.0 area 0
+ network 10.10.20.0 255.255.255.0 area 0
+ network 10.10.30.0 255.255.255.0 area 0
+ network 10.10.40.0 255.255.255.0 area 0
+ network 10.10.50.0 255.255.255.0 area 0
+ network 10.10.60.0 255.255.255.0 area 0
+ network 10.10.70.0 255.255.255.0 area 0
+ network 10.10.80.0 255.255.255.0 area 0
+ network 10.10.90.0 255.255.255.0 area 0
 exit
 
 ipv6 router ospf 1

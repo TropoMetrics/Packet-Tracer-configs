@@ -39,13 +39,7 @@ vlan 190
 name DMZnet
 exit
 
-interface GigabitEthernet0/1
-switchport mode trunk
-switchport trunk allowed vlan 170,180,190
-no shutdown
-exit
-
-interface GigabitEthernet0/2
+interface range GigabitEthernet0/1-2
 switchport mode trunk
 switchport trunk allowed vlan 170,180,190
 no shutdown
