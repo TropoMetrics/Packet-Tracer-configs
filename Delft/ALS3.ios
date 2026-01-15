@@ -42,6 +42,11 @@ interface FastEthernet0/1
  switchport access vlan 130
 exit
 
+interface FastEthernet0/1
+ switchport mode access
+ switchport access vlan 130
+exit
+
 interface range FastEthernet0/3-24
 shutdown
 exit
