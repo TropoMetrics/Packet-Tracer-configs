@@ -74,7 +74,6 @@ interface vlan 999
 shutdown
 exit
 
-exit
 interface vlan 110
  ipv6 enable
  ipv6 address 2001:f187:0:1010::2/64
