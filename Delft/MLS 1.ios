@@ -76,117 +76,117 @@ exit
 
 interface vlan 110
  ipv6 enable
- ipv6 address 2001:f187:0:1010::2/64
+ ipv6 address 2001:f187:0:1010::1/64
  ip address 10.10.10.2 255.255.255.0
  standby 110 ip 10.10.10.1
  standby 110 priority 110
  standby 110 preempt
  standby version 2
- standby 110 ipv6 2001:f187:0:1010::1/64
+ standby 110 ipv6 autoconfig
  standby 110 priority 110
  ipv6 ospf 1 area 0
 exit
 
 interface vlan 120
 ipv6 enable
- ipv6 address 2001:f187:0:1020::2/64
+ ipv6 address 2001:f187:0:1020::1/64
  ip address 10.10.20.2 255.255.255.0
  standby 120 ip 10.10.20.1
  standby 120 priority 110
  standby 120 preempt
  standby version 2
- standby 120 ipv6 2001:f187:0:1020::1/64
+ standby 120 ipv6 autoconfig
  standby 120 priority 110
  ipv6 ospf 1 area 0
 exit
 
 interface vlan 130
 ipv6 enable
- ipv6 address 2001:f187:0:1030::2/64
+ ipv6 address 2001:f187:0:1030::1/64
  ip address 10.10.30.2 255.255.255.0
  standby 130 ip 10.10.30.1
  standby 130 priority 110
  standby 130 preempt
  standby version 2
- standby 130 ipv6 2001:f187:0:1030::1/64
+ standby 130 ipv6 autoconfig
  standby 130 priority 110
  ipv6 ospf 1 area 0
 exit
 
 interface vlan 140
 ipv6 enable
- ipv6 address 2001:f187:0:1040::2/64
+ ipv6 address 2001:f187:0:1040::1/64
  ip address 10.10.40.2 255.255.255.0
  standby 140 ip 10.10.40.1
  standby 140 priority 110
  standby 140 preempt
  standby version 2
- standby 140 ipv6 2001:f187:0:1040::1/64
+ standby 140 ipv6 autoconfig
  standby 140 priority 110
  ipv6 ospf 1 area 0
 exit
 
 interface vlan 150
 ipv6 enable
- ipv6 address 2001:f187:0:1050::2/64
+ ipv6 address 2001:f187:0:1050::1/64
  ip address 10.10.50.2 255.255.255.0
  standby 150 ip 10.10.50.1
  standby 150 priority 110
  standby 150 preempt
  standby version 2
- standby 150 ipv6 2001:f187:0:1050::1/64
+ standby 150 ipv6 autoconfig
  standby 150 priority 110
  ipv6 ospf 1 area 0
 exit
 
 interface vlan 160
 ipv6 enable
- ipv6 address 2001:f187:0:1060::2/64
+ ipv6 address 2001:f187:0:1060::1/64
  ip address 10.10.60.2 255.255.255.0
  standby 160 ip 10.10.60.1
  standby 160 priority 110
  standby 160 preempt
  standby version 2
- standby 160 ipv6 2001:f187:0:1060::1/64
+ standby 160 ipv6 autoconfig
  standby 160 priority 110
  ipv6 ospf 1 area 0
 exit
 
 interface vlan 170
 ipv6 enable
- ipv6 address 2001:f187:0:1070::2/64
+ ipv6 address 2001:f187:0:1070::1/64
  ip address 10.10.70.2 255.255.255.0
  standby 170 ip 10.10.70.1
  standby 170 priority 90
  standby 170 preempt
  standby version 2
- standby 170 ipv6 2001:f187:0:1070::1/64
+ standby 170 ipv6 autoconfig
  standby 170 priority 90
  ipv6 ospf 1 area 0
 exit
 
 interface vlan 180
 ipv6 enable
- ipv6 address 2001:f187:0:1080::2/64
+ ipv6 address 2001:f187:0:1080::1/64
  ip address 10.10.80.2 255.255.255.0
  standby 180 ip 10.10.80.1
  standby 180 priority 90
  standby 180 preempt
  standby version 2
- standby 180 ipv6 2001:f187:0:1080::1/64
+ standby 180 ipv6 autoconfig
  standby 180 priority 90
  ipv6 ospf 1 area 0
 exit
 
 interface vlan 190
 ipv6 enable
- ipv6 address 2001:f187:0:1090::2/64
+ ipv6 address 2001:f187:0:1090::1/64
  ip address 10.10.90.2 255.255.255.0
  standby 190 ip 10.10.90.1
  standby 190 priority 90
  standby 190 preempt
  standby version 2
- standby 190 ipv6 2001:f187:0:1090::1/64
+ standby 190 ipv6 autoconfig
  standby 190 priority 90
  ipv6 ospf 1 area 0
 exit
