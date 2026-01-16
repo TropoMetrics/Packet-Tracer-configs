@@ -95,14 +95,12 @@ ipv6 route ::/0 Serial0/1/0 fe80::10
 router bgp 110
 bgp log-neighbor-changes
 no synchronization
- ! IPv4
  neighbor 145.34.44.1 remote-as 100
  network 145.34.44.0 mask 255.255.255.0
+ neighbor fe80::10%Serial0/1/0 remote-as 100
 
- ! IPv6
  address-family ipv6
-  neighbor fe80::10 remote-as 100
-  neighbor fe80::10 update-source Serial0/1/0
+  neighbor fe80::10%Serial0/1/0 activate
   network 2001:f187:0:1010::/64
   network 2001:f187:0:1020::/64
   network 2001:f187:0:1030::/64
