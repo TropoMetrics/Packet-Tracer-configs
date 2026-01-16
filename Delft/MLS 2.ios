@@ -255,6 +255,12 @@ description Etherchannel to MLS 1 Delft
  no shutdown
 exit
 
+interface range GigabitEthernet1/0/5-18
+switchport mode access
+switchport access vlan 999
+shutdown
+exit
+
 interface Port-channel 10
 description Etherchannel ip to MLS 1 Delft
  ip address 192.168.0.22 255.255.255.252

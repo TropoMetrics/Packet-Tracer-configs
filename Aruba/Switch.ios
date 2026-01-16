@@ -26,3 +26,32 @@ ip domain-name hhs.nl
 !crypto key zeroize rsa
 crypto key generate rsa
 2048
+
+vlan 210
+name Marketing
+exit
+
+vlan 999
+name BLACKHOLE
+exit
+
+interface GigabitEthernet0/1
+ switchport mode access
+ switchport access vlan 210
+ no shutdown
+exit
+
+interface range FastEthernet0/1-2
+ switchport mode access
+ switchport access vlan 210
+ switchport port-security
+ switchport port-security maximum 1
+ switchport port-security mac-address sticky
+ no shutdown
+exit
+
+interface range FastEthernet0/3-24
+ switchport mode access
+ switchport access vlan 999
+ shutdown
+exit

@@ -47,6 +47,7 @@ interface FastEthernet0/1
  switchport port-security
  switchport port-security maximum 1
  switchport port-security mac-address sticky
+ no shutdown
 exit
 
 interface FastEthernet0/2
@@ -55,6 +56,7 @@ interface FastEthernet0/2
  switchport port-security
  switchport port-security maximum 1
  switchport port-security mac-address sticky
+ no shutdown
 exit
 
 interface range FastEthernet0/3-24

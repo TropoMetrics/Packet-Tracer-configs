@@ -55,6 +55,7 @@ switchport access vlan 140
 switchport port-security
 switchport port-security maximum 1
 switchport port-security mac-address sticky
+no shutdown
 exit
 
 interface FastEthernet0/2
@@ -64,6 +65,7 @@ switchport trunk allowed vlan 140,150,160
 switchport port-security 
 switchport port-security maximum 1 
 switchport port-security mac-address sticky
+no shutdown
 exit
 
 interface FastEthernet0/3
@@ -72,6 +74,7 @@ switchport access vlan 150
 switchport port-security
 switchport port-security maximum 1
 switchport port-security mac-address sticky
+no shutdown
 exit
 
 interface FastEthernet0/4
@@ -80,6 +83,7 @@ switchport access vlan 160
 switchport port-security
 switchport port-security maximum 1
 switchport port-security mac-address sticky
+no shutdown
 exit
 
 interface range FastEthernet0/5-24
