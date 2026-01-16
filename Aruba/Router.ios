@@ -59,11 +59,12 @@ exit
 ip route 0.0.0.0 0.0.0.0 145.34.46.1
 ipv6 route ::/0 GigabitEthernet0/0/1 fe80::30
 
-ip dhcp excluded-address 10.20.10.1 10.20.10.10
-
 ip dhcp pool VLAN20-ARUBA
  network 10.20.10.0 255.255.255.0
  default-router 10.20.10.1
  dns-server 8.8.8.8
  domain-name hhs.nl
  lease 7
+
+ ip dhcp excluded-address 10.20.10.1 10.20.10.10
+
