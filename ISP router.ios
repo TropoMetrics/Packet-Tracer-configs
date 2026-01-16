@@ -66,8 +66,8 @@ description Internet Loopback
  ipv6 address 2001:db8:ffff::1/128
 exit
 
-ipv6 route 2001:f187:0:2010::/64 Serial0/2/0 fe80::31
-ipv6 route 2001:f187:0:3010::/64 Serial0/2/1 fe80::41
+ipv6 route 2001:f187:0:2010::/64 GigabitEthernet0/0/0 fe80::31
+ipv6 route 2001:f187:0:3010::/64 GigabitEthernet0/0/1 fe80::41
 
 router bgp 100
 bgp log-neighbor-changes
@@ -81,6 +81,8 @@ no synchronization
 
  ! IPv6
  address-family ipv6
+ neighbor fe80::11%Serial0/1/0 activate
+ neighbor fe80::21%Serial0/1/1 activate
   network 2001:db8:ffff::1/128
  exit
 exit
