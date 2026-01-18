@@ -244,7 +244,7 @@ interface GigabitEthernet1/0/20
 description Link to ALS5
 switchport
 switchport mode trunk
-switchport trunk allowed vlan 170,180,190
+switchport trunk allowed vlan 170,180,190,191
 no shutdown
 exit
 
@@ -252,7 +252,7 @@ interface GigabitEthernet1/0/19
 description Link to ALS6
 switchport
 switchport mode trunk
-switchport trunk allowed vlan 170,180,190
+switchport trunk allowed vlan 170,180,190,191
 no shutdown
 exit
 
