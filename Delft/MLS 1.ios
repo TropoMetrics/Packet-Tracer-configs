@@ -198,8 +198,8 @@ exit
 interface vlan 191
 ipv6 enable
  ipv6 address 2001:f187:0:1091::1/64
- ip address 10.10.91.2 255.255.255.0
- standby 191 ip 10.10.91.1
+ ip address 145.34.44.2 255.255.255.0
+ standby 191 ip 145.34.44.1
  standby 191 priority 90
  standby 191 preempt
  standby version 2
