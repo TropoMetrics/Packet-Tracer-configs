@@ -43,19 +43,23 @@ vlan 191
 name External
 exit
 
+vlan 192
+name Management
+exit
+
 vlan 999
 name BLACKHOLE
 exit
 
 interface range GigabitEthernet0/1-2
 switchport mode trunk
-switchport trunk allowed vlan 170,180,190,191
+switchport trunk allowed vlan 170,180,190,191,192
 no shutdown
 exit
 
 interface FastEthernet0/1
 switchport mode trunk
-switchport trunk allowed vlan 170,180,190,191
+switchport trunk allowed vlan 170,180,190,191,192
 no shutdown
 exit
 

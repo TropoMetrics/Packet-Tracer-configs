@@ -70,6 +70,10 @@ vlan 191
 name External
 exit
 
+vlan 192
+name Management
+exit
+
 vlan 999
 name BLACKHOLE
 exit
@@ -199,6 +203,18 @@ ipv6 enable
  ipv6 ospf 1 area 0
 exit
 
+interface vlan 192
+ipv6 enable
+ ipv6 address 2001:f187:0:1092::1/64
+ ip address 10.10.92.3 255.255.255.0
+ standby 192 ip 10.10.92.1
+ standby 192 priority 110
+ standby 192 preempt
+ standby version 2
+ standby 192 ipv6 autoconfig
+ standby 192 priority 110
+exit
+
 interface GigabitEthernet1/0/24
 description Link to ALS1
 switchport
@@ -235,7 +251,7 @@ interface GigabitEthernet1/0/20
 description Link to ALS5
 switchport
 switchport mode trunk
-switchport trunk allowed vlan 170,180,190,191
+switchport trunk allowed vlan 170,180,190,191,192
 no shutdown
 exit
 
@@ -243,7 +259,7 @@ interface GigabitEthernet1/0/19
 description Link to ALS6
 switchport
 switchport mode trunk
-switchport trunk allowed vlan 170,180,190,191
+switchport trunk allowed vlan 170,180,190,191,192
 no shutdown
 exit
 
@@ -307,6 +323,8 @@ router ospf 1
  network 10.10.70.0 255.255.255.0 area 0
  network 10.10.80.0 255.255.255.0 area 0
  network 10.10.90.0 255.255.255.0 area 0
+ network 10.10.91.0 255.255.255.0 area 0
+ network 10.10.92.0 255.255.255.0 area 0
 exit
 
 ipv6 router ospf 1
