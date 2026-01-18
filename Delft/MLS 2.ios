@@ -66,6 +66,10 @@ vlan 190
 name DMZnet
 exit
 
+vlan 191
+name External
+exit
+
 vlan 999
 name BLACKHOLE
 exit
@@ -180,6 +184,19 @@ ipv6 enable
  standby version 2
  standby 190 ipv6 autoconfig
  standby 190 priority 110
+exit
+
+interface vlan 191
+ipv6 enable
+ ipv6 address 2001:f187:0:1091::1/64
+ ip address 10.10.91.3 255.255.255.0
+ standby 191 ip 10.10.91.1
+ standby 191 priority 110
+ standby 191 preempt
+ standby version 2
+ standby 191 ipv6 autoconfig
+ standby 191 priority 110
+ ipv6 ospf 1 area 0
 exit
 
 interface GigabitEthernet1/0/24
