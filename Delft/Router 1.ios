@@ -26,10 +26,13 @@ crypto key generate rsa
 
 ipv6 unicast-routing
 
+ip access-list extended NAT-ACL
+ deny ip any 10.20.10.0 0.0.0.255
+ deny ip any 10.30.10.0 0.0.0.255
+ deny 145.34.44.0 0.0.0.255
+ deny 145.34.45.0 0.0.0.3 
+ permit ip any
 
-ip access-list standard NAT-ACL
- deny 145.34.44.0 0.0.0.255 
- permit any
 ip nat inside source list NAT-ACL interface Serial0/1/0 overload
 
 interface GigabitEthernet0/0/0
@@ -77,20 +80,22 @@ ipv6 enable
 exit
 
 interface Tunnel100
- description IPsec VTI to Aruba (primary)
+ description GRE Aruba <-> Delft1 (primary)
  ip address 172.16.0.1 255.255.255.252
+ ipv6 address 2001:f187:ffff:1::1/64
  tunnel source Serial0/1/0
- tunnel destination <ARUBA_PUBLIC_IP>
- tunnel mode ipsec ipv4
- tunnel protection ipsec profile IPSEC-PROFILE
+ tunnel destination 145.34.46.2
+ tunnel mode gre ip
+ no shutdown
 
 interface Tunnel200
- description IPsec VTI to Melbourne (primary)
+ description GRE Melbourne <-> Delft1 (primary)
  ip address 172.16.0.9 255.255.255.252
+ ipv6 address 2001:f187:ffff:3::1/64
  tunnel source Serial0/1/0
- tunnel destination <MELB_PUBLIC_IP>
- tunnel mode ipsec ipv4
- tunnel protection ipsec profile IPSEC-PROFILE
+ tunnel destination 145.34.47.2
+ tunnel mode gre ip
+ no shutdown
 
 router ospf 1
 default-information originate
@@ -105,14 +110,17 @@ ipv6 router ospf 1
  default-information originate
 exit
 
-ip route 0.0.0.0 0.0.0.0 145.34.44.1
+ip route 0.0.0.0 0.0.0.0 145.34.45.1
 ipv6 route ::/0 Serial0/1/0 fe80::10
+ip route 10.20.10.0 255.255.255.0 Tunnel100
+ip route 10.30.10.0 255.255.255.0 Tunnel200
+
 
 router bgp 110
 bgp log-neighbor-changes
 no synchronization
- neighbor 145.34.44.1 remote-as 100
- network 145.34.44.0 mask 255.255.255.0
+ neighbor 145.34.45.1 remote-as 100
+ network 145.34.45.0 mask 255.255.255.0
  neighbor fe80::10%Serial0/1/0 remote-as 100
 
  address-family ipv6
