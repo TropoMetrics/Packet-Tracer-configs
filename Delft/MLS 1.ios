@@ -83,6 +83,8 @@ shutdown
 exit
 
 interface vlan 110
+ip access-group VLAN-ISOLATION-V4 in
+ipv6 traffic-filter VLAN-ISOLATION-V6 in
  ipv6 enable
  ipv6 address 2001:f187:0:1010::1/64
  ip address 10.10.10.2 255.255.255.0
@@ -96,6 +98,8 @@ interface vlan 110
 exit
 
 interface vlan 120
+ip access-group VLAN-ISOLATION-V4 in
+ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
  ipv6 address 2001:f187:0:1020::1/64
  ip address 10.10.20.2 255.255.255.0
@@ -109,6 +113,8 @@ ipv6 enable
 exit
 
 interface vlan 130
+ip access-group VLAN-ISOLATION-V4 in
+ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
  ipv6 address 2001:f187:0:1030::1/64
  ip address 10.10.30.2 255.255.255.0
@@ -122,6 +128,8 @@ ipv6 enable
 exit
 
 interface vlan 140
+ip access-group VLAN-ISOLATION-V4 in
+ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
  ipv6 address 2001:f187:0:1040::1/64
  ip address 10.10.40.2 255.255.255.0
@@ -135,6 +143,8 @@ ipv6 enable
 exit
 
 interface vlan 150
+ip access-group VLAN-ISOLATION-V4 in
+ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
  ipv6 address 2001:f187:0:1050::1/64
  ip address 10.10.50.2 255.255.255.0
@@ -148,6 +158,8 @@ ipv6 enable
 exit
 
 interface vlan 160
+ip access-group VLAN-ISOLATION-V4 in
+ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
  ipv6 address 2001:f187:0:1060::1/64
  ip address 10.10.60.2 255.255.255.0
@@ -161,6 +173,8 @@ ipv6 enable
 exit
 
 interface vlan 170
+ip access-group VLAN-ISOLATION-V4 in
+ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
  ipv6 address 2001:f187:0:1070::1/64
  ip address 10.10.70.2 255.255.255.0
@@ -187,6 +201,8 @@ ipv6 enable
 exit
 
 interface vlan 190
+ip access-group VLAN-ISOLATION-V4 in
+ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
  ipv6 address 2001:f187:0:1090::1/64
  ip address 10.10.90.2 255.255.255.0
@@ -213,6 +229,8 @@ ipv6 enable
 exit
 
 interface vlan 192
+ip access-group VLAN-ISOLATION-V4 in
+ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
  ipv6 address 2001:f187:0:1092::1/64
  ip address 10.10.92.2 255.255.255.0
@@ -343,4 +361,60 @@ exit
 
 ipv6 router ospf 1
  router-id 192.168.255.50
+exit
+
+ip access-list extended VLAN-ISOLATION-V4
+ permit ip 10.10.10.0 0.0.0.255 10.10.10.0 0.0.0.255
+ permit ip 10.10.20.0 0.0.0.255 10.10.20.0 0.0.0.255
+ permit ip 10.10.30.0 0.0.0.255 10.10.30.0 0.0.0.255
+ permit ip 10.10.40.0 0.0.0.255 10.10.40.0 0.0.0.255
+ permit ip 10.10.50.0 0.0.0.255 10.10.50.0 0.0.0.255
+ permit ip 10.10.60.0 0.0.0.255 10.10.60.0 0.0.0.255
+ permit ip 10.10.70.0 0.0.0.255 10.10.70.0 0.0.0.255
+ permit ip 10.10.90.0 0.0.0.255 10.10.90.0 0.0.0.255
+ permit ip 10.10.92.0 0.0.0.255 10.10.92.0 0.0.0.255
+
+ permit ip any 10.10.80.0 0.0.0.255
+
+ deny ip any 10.10.10.0 0.0.0.255
+ deny ip any 10.10.20.0 0.0.0.255
+ deny ip any 10.10.30.0 0.0.0.255
+ deny ip any 10.10.40.0 0.0.0.255
+ deny ip any 10.10.50.0 0.0.0.255
+ deny ip any 10.10.60.0 0.0.0.255
+ deny ip any 10.10.70.0 0.0.0.255
+ deny ip any 10.10.90.0 0.0.0.255
+ deny ip any 10.10.92.0 0.0.0.255
+ deny ip any 10.20.10.0 0.0.0.255
+ deny ip any 10.30.10.0 0.0.0.255
+
+ permit ip any any
+exit
+
+ipv6 access-list VLAN-ISOLATION-V6
+ permit ipv6 2001:F187:0:1010::/64 2001:F187:0:1010::/64
+ permit ipv6 2001:F187:0:1020::/64 2001:F187:0:1020::/64
+ permit ipv6 2001:F187:0:1030::/64 2001:F187:0:1030::/64
+ permit ipv6 2001:F187:0:1040::/64 2001:F187:0:1040::/64
+ permit ipv6 2001:F187:0:1050::/64 2001:F187:0:1050::/64
+ permit ipv6 2001:F187:0:1060::/64 2001:F187:0:1060::/64
+ permit ipv6 2001:F187:0:1070::/64 2001:F187:0:1070::/64
+ permit ipv6 2001:F187:0:1090::/64 2001:F187:0:1090::/64
+ permit ipv6 2001:F187:0:1092::/64 2001:F187:0:1092::/64
+
+ permit ipv6 any 2001:F187:0:1080::/64
+
+ deny ipv6 any 2001:F187:0:1010::/64
+ deny ipv6 any 2001:F187:0:1020::/64
+ deny ipv6 any 2001:F187:0:1030::/64
+ deny ipv6 any 2001:F187:0:1040::/64
+ deny ipv6 any 2001:F187:0:1050::/64
+ deny ipv6 any 2001:F187:0:1060::/64
+ deny ipv6 any 2001:F187:0:1070::/64
+ deny ipv6 any 2001:F187:0:1090::/64
+ deny ipv6 any 2001:F187:0:1092::/64
+ deny ipv6 any 2001:F187:0:2010::/64
+ deny ipv6 any 2001:F187:0:3010::/64
+
+ permit ipv6 any any
 exit
