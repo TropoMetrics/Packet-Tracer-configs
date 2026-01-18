@@ -28,8 +28,8 @@ ipv6 unicast-routing
 
 ip access-list extended NAT-ACL
  deny ip any 10.10.80.0 0.0.0.255
- deny 145.34.46.0 0.0.0.3 
- permit ip any
+ deny ip 145.34.46.0 0.0.0.3 any
+ permit ip any any
 
 ip nat inside source list NAT-ACL interface GigabitEthernet0/0/1 overload
 
@@ -59,29 +59,27 @@ ipv6 enable
 exit
 
 interface Tunnel10
- description GRE Aruba <-> Delft1 (primary)
  ip address 172.16.0.2 255.255.255.252
  ipv6 address 2001:f187:ffff:1::2/64
  tunnel source GigabitEthernet0/0/1
- tunnel destination 145.34.44.2
+ tunnel destination 145.34.45.2
  tunnel mode gre ip
  no shutdown
 
 interface Tunnel11
- description GRE Aruba <-> Delft2 (backup)
  ip address 172.16.0.6 255.255.255.252
  ipv6 address 2001:f187:ffff:2::2/64
  tunnel source GigabitEthernet0/0/1
- tunnel destination 145.34.44.6
+ tunnel destination 145.34.45.6
  tunnel mode gre ip
  no shutdown
 
 ip route 0.0.0.0 0.0.0.0 145.34.46.1
 ipv6 route ::/0 GigabitEthernet0/0/1 fe80::30
-ip route 10.10.80.0 255.255.255.0 Tunnel10 10
-ip route 10.10.80.0 255.255.255.0 Tunnel11 20
-ipv6 route 2001:f187:0:1080::/64 Tunnel10 10
-ipv6 route 2001:f187:0:1080::/64 Tunnel11 20
+ip route 10.10.80.0 255.255.255.0 172.16.0.1 10
+ip route 10.10.80.0 255.255.255.0 172.16.0.5 20
+ipv6 route 2001:f187:0:1080::/64 2001:f187:ffff:1::1 10
+ipv6 route 2001:f187:0:1080::/64 2001:f187:ffff:2::1 20
 
 ip dhcp pool VLAN20-ARUBA
  network 10.20.10.0 255.255.255.0

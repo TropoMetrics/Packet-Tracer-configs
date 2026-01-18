@@ -29,9 +29,9 @@ ipv6 unicast-routing
 ip access-list extended NAT-ACL
  deny ip any 10.20.10.0 0.0.0.255
  deny ip any 10.30.10.0 0.0.0.255
- deny 145.34.44.0 0.0.0.255
- deny 145.34.45.4 0.0.0.3 
- permit ip any
+ deny ip 145.34.44.0 0.0.0.255 any
+ deny ip 145.34.45.4 0.0.0.3 any
+ permit ip any any
 
 ip nat inside source list NAT-ACL interface Serial0/1/0 overload
 
@@ -79,7 +79,6 @@ ipv6 enable
 exit
 
 interface Tunnel110
- description GRE Aruba <-> Delft2 (backup)
  ip address 172.16.0.5 255.255.255.252
  ipv6 address 2001:f187:ffff:2::1/64
  tunnel source Serial0/1/0
@@ -88,7 +87,6 @@ interface Tunnel110
  no shutdown
 
 interface Tunnel210
- description GRE Melbourne <-> Delft2 (backup)
  ip address 172.16.0.13 255.255.255.252
  ipv6 address 2001:f187:ffff:4::1/64
  tunnel source Serial0/1/0
@@ -99,10 +97,16 @@ interface Tunnel210
 
 router ospf 1
 default-information originate
+ passive-interface default
+ no passive-interface GigabitEthernet0/0/0
+ no passive-interface GigabitEthernet0/0/1
+ no passive-interface Serial0/1/1
  network 192.168.0.0 0.0.0.3 area 0
  network 192.168.0.8 0.0.0.3 area 0
  network 192.168.0.16 0.0.0.3 area 0
  network 192.168.255.1 0.0.0.0 area 0
+ network 172.16.0.4 0.0.0.3 area 0
+ network 172.16.0.12 0.0.0.3 area 0
 exit
 
 ipv6 router ospf 1
@@ -112,8 +116,8 @@ exit
 
 ip route 0.0.0.0 0.0.0.0 145.34.45.5
 ipv6 route ::/0 Serial0/1/0 fe80::20
-ip route 10.20.10.0 255.255.255.0 Tunnel110
-ip route 10.30.10.0 255.255.255.0 Tunnel210
+ip route 10.20.10.0 255.255.255.0 172.16.0.6
+ip route 10.30.10.0 255.255.255.0 172.16.0.14
 
 router bgp 110
 bgp log-neighbor-changes

@@ -73,8 +73,8 @@ router bgp 100
 bgp log-neighbor-changes
 no synchronization
  ! IPv4
- neighbor 145.34.44.2 remote-as 110
- neighbor 145.34.44.6 remote-as 110
+ neighbor 145.34.45.2 remote-as 110
+ neighbor 145.34.45.6 remote-as 110
  network 1.1.1.1 mask 255.255.255.255
  neighbor fe80::11%Serial0/1/0 remote-as 110
  neighbor fe80::21%Serial0/1/1 remote-as 110

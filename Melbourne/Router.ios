@@ -28,8 +28,8 @@ ipv6 unicast-routing
 
 ip access-list extended NAT-ACL
  deny ip any 10.10.80.0 0.0.0.255
- deny 145.34.47.0 0.0.0.3 
- permit ip any
+ deny ip 145.34.47.0 0.0.0.3 any
+ permit ip any any
 
 ip nat inside source list NAT-ACL interface GigabitEthernet0/0/1 overload
 
@@ -59,29 +59,27 @@ ipv6 enable
 exit
 
 interface Tunnel20
- description GRE Melbourne <-> Delft1 (primary)
  ip address 172.16.0.10 255.255.255.252
  ipv6 address 2001:f187:ffff:3::2/64
  tunnel source GigabitEthernet0/0/1
- tunnel destination 145.34.44.2
+ tunnel destination 145.34.45.2
  tunnel mode gre ip
  no shutdown
 
 interface Tunnel21
- description GRE Melbourne <-> Delft2 (backup)
  ip address 172.16.0.14 255.255.255.252
  ipv6 address 2001:f187:ffff:4::2/64
  tunnel source GigabitEthernet0/0/1
- tunnel destination 145.34.44.6
+ tunnel destination 145.34.45.6
  tunnel mode gre ip
  no shutdown
 
 ip route 0.0.0.0 0.0.0.0 145.34.47.1
 ipv6 route ::/0 GigabitEthernet0/0/1 fe80::40
-ip route 10.10.80.0 255.255.255.0 Tunnel20 10
-ip route 10.10.80.0 255.255.255.0 Tunnel21 20
-ipv6 route 2001:f187:0:1080::/64 Tunnel20 10
-ipv6 route 2001:f187:0:1080::/64 Tunnel21 20
+ip route 10.10.80.0 255.255.255.0 172.16.0.9 10
+ip route 10.10.80.0 255.255.255.0 172.16.0.13 20
+ipv6 route 2001:f187:0:1080::/64 2001:f187:ffff:3::1 10
+ipv6 route 2001:f187:0:1080::/64 2001:f187:ffff:4::1 20
 
 ip dhcp pool VLAN30-MELBOURNE
  network 10.30.10.0 255.255.255.0
