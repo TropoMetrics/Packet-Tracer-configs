@@ -76,7 +76,7 @@ switchport access vlan 192
 no shutdown
 exit
 
-interface FastEthernet0/1
+interface FastEthernet0/24
  switchport mode access
  switchport access vlan 120
  switchport port-security
