@@ -83,6 +83,7 @@ shutdown
 exit
 
 interface vlan 110
+ip helper-address 10.10.80.11
 ip access-group VLAN-ISOLATION-V4 in
 ipv6 traffic-filter VLAN-ISOLATION-V6 in
  ipv6 enable
@@ -98,6 +99,7 @@ ipv6 traffic-filter VLAN-ISOLATION-V6 in
 exit
 
 interface vlan 120
+ip helper-address 10.10.80.11
 ip access-group VLAN-ISOLATION-V4 in
 ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
@@ -113,6 +115,7 @@ ipv6 enable
 exit
 
 interface vlan 130
+ip helper-address 10.10.80.11
 ip access-group VLAN-ISOLATION-V4 in
 ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
@@ -128,6 +131,7 @@ ipv6 enable
 exit
 
 interface vlan 140
+ip helper-address 10.10.80.11
 ip access-group VLAN-ISOLATION-V4 in
 ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
@@ -143,6 +147,7 @@ ipv6 enable
 exit
 
 interface vlan 150
+ip helper-address 10.10.80.11
 ip access-group VLAN-ISOLATION-V4 in
 ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
@@ -158,6 +163,7 @@ ipv6 enable
 exit
 
 interface vlan 160
+ip helper-address 10.10.80.11
 ip access-group VLAN-ISOLATION-V4 in
 ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
@@ -173,6 +179,7 @@ ipv6 enable
 exit
 
 interface vlan 170
+ip helper-address 10.10.80.11
 ip access-group VLAN-ISOLATION-V4 in
 ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
@@ -188,6 +195,7 @@ ipv6 enable
 exit
 
 interface vlan 180
+ip helper-address 10.10.80.11
 ipv6 enable
  ipv6 address 2001:f187:0:1080::1/64
  ip address 10.10.80.2 255.255.255.0
@@ -201,6 +209,7 @@ ipv6 enable
 exit
 
 interface vlan 190
+ip helper-address 10.10.80.11
 ip access-group VLAN-ISOLATION-V4 in
 ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
@@ -216,6 +225,7 @@ ipv6 enable
 exit
 
 interface vlan 191
+ip helper-address 10.10.80.11
 ipv6 enable
  ipv6 address 2001:f187:0:1091::1/64
  ip address 145.34.44.2 255.255.255.0
@@ -229,6 +239,7 @@ ipv6 enable
 exit
 
 interface vlan 192
+ip helper-address 10.10.80.11
 ip access-group VLAN-ISOLATION-V4 in
 ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
