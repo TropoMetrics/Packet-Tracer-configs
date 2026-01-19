@@ -27,7 +27,7 @@ ip domain-name hhs.nl
 crypto key generate rsa
 2048
 
-sdm prefer dual-ipv4-and-ipv6
+sdm prefer dual-ipv4-and-ipv6 default
 
 vlan 170
 name Calcnet
@@ -65,7 +65,7 @@ switchport trunk allowed vlan 170,180,190,191,192
 no shutdown
 exit
 
-interface FastEthernet0/1
+interface range FastEthernet0/1-2
 switchport mode trunk
 switchport trunk allowed vlan 170,180,190,191,192
 switchport trunk native vlan 192
@@ -78,7 +78,7 @@ switchport access vlan 999
 shutdown
 exit
 
-interface range FastEthernet0/11-12
+interface range FastEthernet0/10-12
 switchport mode access
 switchport access vlan 192
 no shutdown
