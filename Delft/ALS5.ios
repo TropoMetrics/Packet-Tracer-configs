@@ -27,6 +27,8 @@ ip domain-name hhs.nl
 crypto key generate rsa
 2048
 
+sdm prefer dual-ipv4-and-ipv6
+
 vlan 170
 name Calcnet
 exit
@@ -49,6 +51,12 @@ exit
 
 vlan 999
 name BLACKHOLE
+exit
+
+interface loopback0
+ip address 192.168.255.104 255.255.255.252
+ipv6 address 2001:f187:0:1::104/128
+no shutdown
 exit
 
 interface range GigabitEthernet0/1-2
