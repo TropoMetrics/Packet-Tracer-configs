@@ -31,7 +31,7 @@ description Link to Router 1 Delft 1
 ipv6 enable
  ip address 145.34.45.1 255.255.255.252
  ipv6 address fe80::10 link-local
- clock rate 64000
+ clock rate 8000000
  no shutdown
 exit
 
@@ -40,7 +40,7 @@ description Link to Router 2 Delft 2
 ipv6 enable
  ip address 145.34.45.5 255.255.255.252
  ipv6 address fe80::20 link-local
- clock rate 64000
+ clock rate 8000000
  no shutdown
 exit
 
@@ -52,13 +52,13 @@ ipv6 enable
  no shutdown
 exit
 
-interface GigabitEthernet0/0/1
-description Link to Router Melbourne
-ipv6 enable
- ip address 145.34.47.1 255.255.255.252
- ipv6 address fe80::40 link-local
- no shutdown
-exit
+!interface GigabitEthernet0/0/1
+!description Link to Router Melbourne
+!ipv6 enable
+! ip address 145.34.47.1 255.255.255.252
+! ipv6 address fe80::40 link-local
+! no shutdown
+!exit
 
 interface Loopback0
 description Internet Loopback
@@ -86,3 +86,24 @@ no synchronization
  network 2001:db8:ffff::1/128
  exit
 exit
+
+
+access-list 1 permit any
+
+interface GigabitEthernet 0/0/1
+ip address dhcp
+no shutdown
+exit
+
+interface GigabitEthernet0/0/0
+ip nat inside
+interface Serial0/1/0
+ip nat inside
+interface Serial0/1/1
+ip nat inside
+interface Gig0/0/1
+ip nat outside
+
+ip nat inside source list 1 interface Gig0/0/1 overload
+
+ip route 0.0.0.0 0.0.0.0 dhcp

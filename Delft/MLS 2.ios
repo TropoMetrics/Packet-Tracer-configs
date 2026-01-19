@@ -361,8 +361,6 @@ ip access-list extended VLAN-ISOLATION-V4
  permit ip 10.10.50.0 0.0.0.255 10.10.50.0 0.0.0.255
  permit ip 10.10.60.0 0.0.0.255 10.10.60.0 0.0.0.255
  permit ip 10.10.70.0 0.0.0.255 10.10.70.0 0.0.0.255
- permit ip 10.10.90.0 0.0.0.255 10.10.90.0 0.0.0.255
- permit ip 10.10.92.0 0.0.0.255 10.10.92.0 0.0.0.255
 
  permit ip any 10.10.80.0 0.0.0.255
 
@@ -373,8 +371,8 @@ ip access-list extended VLAN-ISOLATION-V4
  deny ip any 10.10.50.0 0.0.0.255
  deny ip any 10.10.60.0 0.0.0.255
  deny ip any 10.10.70.0 0.0.0.255
- deny ip any 10.10.90.0 0.0.0.255
- deny ip any 10.10.92.0 0.0.0.255
+ deny ip any 10.20.10.0 0.0.0.255
+ deny ip any 10.30.10.0 0.0.0.255
 
  permit ip any any
 exit
@@ -387,8 +385,6 @@ ipv6 access-list VLAN-ISOLATION-V6
  permit ipv6 2001:F187:0:1050::/64 2001:F187:0:1050::/64
  permit ipv6 2001:F187:0:1060::/64 2001:F187:0:1060::/64
  permit ipv6 2001:F187:0:1070::/64 2001:F187:0:1070::/64
- permit ipv6 2001:F187:0:1090::/64 2001:F187:0:1090::/64
- permit ipv6 2001:F187:0:1092::/64 2001:F187:0:1092::/64
 
  permit ipv6 any 2001:F187:0:1080::/64
 
@@ -399,8 +395,6 @@ ipv6 access-list VLAN-ISOLATION-V6
  deny ipv6 any 2001:F187:0:1050::/64
  deny ipv6 any 2001:F187:0:1060::/64
  deny ipv6 any 2001:F187:0:1070::/64
- deny ipv6 any 2001:F187:0:1090::/64
- deny ipv6 any 2001:F187:0:1092::/64
  deny ipv6 any 2001:F187:0:2010::/64
  deny ipv6 any 2001:F187:0:3010::/64
 

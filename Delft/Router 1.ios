@@ -65,7 +65,7 @@ exit
 
 interface Serial0/1/1
 description Link to Router 2 Delft
- clock rate 64000
+ clock rate 8000000
  ip address 192.168.0.17 255.255.255.252
  ipv6 enable
  ipv6 ospf 1 area 0
