@@ -52,16 +52,9 @@ ipv6 enable
  no shutdown
 exit
 
-!interface GigabitEthernet0/0/1
-!description Link to Router Melbourne
-!ipv6 enable
-! ip address 145.34.47.1 255.255.255.252
-! ipv6 address fe80::40 link-local
-! no shutdown
-!exit
-
 interface Loopback0
 description Internet Loopback
+ipv6 enable
  ip address 1.1.1.1 255.255.255.255
  ipv6 address 2001:db8:ffff::1/128
 exit
@@ -107,7 +100,3 @@ ip nat outside
 ip nat inside source list 1 interface Gig0/0/1 overload
 
 ip route 0.0.0.0 0.0.0.0 dhcp
-
-ntp master 3
-exit
-clock set 20:10:00 jan 19 2026

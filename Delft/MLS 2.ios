@@ -38,26 +38,6 @@ vlan 120
 name Marketing
 exit
 
-vlan 130
-name Support
-exit
-
-vlan 140
-name IT-Dienst
-exit
-
-vlan 150
-name Application-Development
-exit
-
-vlan 160
-name Meteo-expertise
-exit
-
-vlan 170
-name Calcnet
-exit
-
 vlan 180
 name Intranet
 exit
@@ -84,8 +64,6 @@ exit
 
 interface vlan 110
 ip helper-address 10.10.80.11
-ip access-group VLAN-ISOLATION-V4 in
-ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
  ipv6 address 2001:f187:0:1010::1/64
  ip address 10.10.10.3 255.255.255.0
@@ -99,8 +77,6 @@ exit
 
 interface vlan 120
 ip helper-address 10.10.80.11
-ip access-group VLAN-ISOLATION-V4 in
-ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
  ipv6 address 2001:f187:0:1020::1/64
  ip address 10.10.20.3 255.255.255.0
@@ -110,81 +86,6 @@ ipv6 enable
  standby version 2
  standby 120 ipv6 autoconfig
  standby 120 priority 90
-exit
-
-interface vlan 130
-ip helper-address 10.10.80.11
-ip access-group VLAN-ISOLATION-V4 in
-ipv6 traffic-filter VLAN-ISOLATION-V6 in
-ipv6 enable
- ipv6 address 2001:f187:0:1030::1/64
- ip address 10.10.30.3 255.255.255.0
- standby 130 ip 10.10.30.1
- standby 130 priority 90
- standby 130 preempt
- standby version 2
- standby 130 ipv6 autoconfig
- standby 130 priority 90
-exit
-
-interface vlan 140
-ip helper-address 10.10.80.11
-ip access-group VLAN-ISOLATION-V4 in
-ipv6 traffic-filter VLAN-ISOLATION-V6 in
-ipv6 enable
- ipv6 address 2001:f187:0:1040::1/64
- ip address 10.10.40.3 255.255.255.0
- standby 140 ip 10.10.40.1
- standby 140 priority 90
- standby 140 preempt
- standby version 2
- standby 140 ipv6 autoconfig
- standby 140 priority 90
-exit
-
-interface vlan 150
-ip helper-address 10.10.80.11
-ip access-group VLAN-ISOLATION-V4 in
-ipv6 traffic-filter VLAN-ISOLATION-V6 in
-ipv6 enable
- ipv6 address 2001:f187:0:1050::1/64
- ip address 10.10.50.3 255.255.255.0
- standby 150 ip 10.10.50.1
- standby 150 priority 90
- standby 150 preempt
- standby version 2
- standby 150 ipv6 autoconfig
- standby 150 priority 90
-exit
-
-interface vlan 160
-ip helper-address 10.10.80.11
-ip access-group VLAN-ISOLATION-V4 in
-ipv6 traffic-filter VLAN-ISOLATION-V6 in
-ipv6 enable
- ipv6 address 2001:f187:0:1060::1/64
- ip address 10.10.60.3 255.255.255.0
- standby 160 ip 10.10.60.1
- standby 160 priority 90
- standby 160 preempt
- standby version 2
- standby 160 ipv6 autoconfig
- standby 160 priority 90
-exit
-
-interface vlan 170
-ip helper-address 10.10.80.11
-ip access-group VLAN-ISOLATION-V4 in
-ipv6 traffic-filter VLAN-ISOLATION-V6 in
-ipv6 enable
- ipv6 address 2001:f187:0:1070::1/64
- ip address 10.10.70.3 255.255.255.0
- standby 170 ip 10.10.70.1
- standby 170 priority 110
- standby 170 preempt
- standby version 2
- standby 170 ipv6 autoconfig
- standby 170 priority 110
 exit
 
 interface vlan 180
@@ -202,8 +103,6 @@ exit
 
 interface vlan 190
 ip helper-address 10.10.80.11
-ip access-group VLAN-ISOLATION-V4 in
-ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
  ipv6 address 2001:f187:0:1090::1/64
  ip address 10.10.90.3 255.255.255.0
@@ -231,8 +130,6 @@ exit
 
 interface vlan 192
 ip helper-address 10.10.80.11
-ip access-group VLAN-ISOLATION-V4 in
-ipv6 traffic-filter VLAN-ISOLATION-V6 in
 ipv6 enable
  ipv6 address 2001:f187:0:1092::1/64
  ip address 10.10.92.3 255.255.255.0
@@ -302,26 +199,18 @@ exit
 interface Loopback0
 description Management interface
 ipv6 enable
+ipv6 ospf 1 area 0
  ip address 192.168.255.51 255.255.255.255
  ipv6 address 2001:f187:0:1::51/128
 exit
 
 router ospf 1
- passive-interface default
- no passive-interface GigabitEthernet1/0/1
- no passive-interface GigabitEthernet1/0/2
- no passive-interface Port-channel10
  network 192.168.0.8 0.0.0.3 area 0
  network 192.168.0.12 0.0.0.3 area 0
  network 192.168.0.20 0.0.0.3 area 0
  network 192.168.255.51 0.0.0.0 area 0
  network 10.10.10.0 255.255.255.0 area 0
  network 10.10.20.0 255.255.255.0 area 0
- network 10.10.30.0 255.255.255.0 area 0
- network 10.10.40.0 255.255.255.0 area 0
- network 10.10.50.0 255.255.255.0 area 0
- network 10.10.60.0 255.255.255.0 area 0
- network 10.10.70.0 255.255.255.0 area 0
  network 10.10.80.0 255.255.255.0 area 0
  network 10.10.90.0 255.255.255.0 area 0
  network 10.10.91.0 255.255.255.0 area 0
@@ -330,54 +219,6 @@ exit
 
 ipv6 router ospf 1
  router-id 192.168.255.51
-exit
-
-ip access-list extended VLAN-ISOLATION-V4
- permit ip 10.10.10.0 0.0.0.255 10.10.10.0 0.0.0.255
- permit ip 10.10.20.0 0.0.0.255 10.10.20.0 0.0.0.255
- permit ip 10.10.30.0 0.0.0.255 10.10.30.0 0.0.0.255
- permit ip 10.10.40.0 0.0.0.255 10.10.40.0 0.0.0.255
- permit ip 10.10.50.0 0.0.0.255 10.10.50.0 0.0.0.255
- permit ip 10.10.60.0 0.0.0.255 10.10.60.0 0.0.0.255
- permit ip 10.10.70.0 0.0.0.255 10.10.70.0 0.0.0.255
-
- permit ip any 10.10.80.0 0.0.0.255
-
- deny ip any 10.10.10.0 0.0.0.255
- deny ip any 10.10.20.0 0.0.0.255
- deny ip any 10.10.30.0 0.0.0.255
- deny ip any 10.10.40.0 0.0.0.255
- deny ip any 10.10.50.0 0.0.0.255
- deny ip any 10.10.60.0 0.0.0.255
- deny ip any 10.10.70.0 0.0.0.255
- deny ip any 10.20.10.0 0.0.0.255
- deny ip any 10.30.10.0 0.0.0.255
-
- permit ip any any
-exit
-
-ipv6 access-list VLAN-ISOLATION-V6
- permit ipv6 2001:F187:0:1010::/64 2001:F187:0:1010::/64
- permit ipv6 2001:F187:0:1020::/64 2001:F187:0:1020::/64
- permit ipv6 2001:F187:0:1030::/64 2001:F187:0:1030::/64
- permit ipv6 2001:F187:0:1040::/64 2001:F187:0:1040::/64
- permit ipv6 2001:F187:0:1050::/64 2001:F187:0:1050::/64
- permit ipv6 2001:F187:0:1060::/64 2001:F187:0:1060::/64
- permit ipv6 2001:F187:0:1070::/64 2001:F187:0:1070::/64
-
- permit ipv6 any 2001:F187:0:1080::/64
-
- deny ipv6 any 2001:F187:0:1010::/64
- deny ipv6 any 2001:F187:0:1020::/64
- deny ipv6 any 2001:F187:0:1030::/64
- deny ipv6 any 2001:F187:0:1040::/64
- deny ipv6 any 2001:F187:0:1050::/64
- deny ipv6 any 2001:F187:0:1060::/64
- deny ipv6 any 2001:F187:0:1070::/64
- deny ipv6 any 2001:F187:0:2010::/64
- deny ipv6 any 2001:F187:0:3010::/64
-
- permit ipv6 any any
 exit
 
 ntp server 1.1.1.1

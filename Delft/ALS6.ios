@@ -72,7 +72,7 @@ switchport trunk native vlan 192
 no shutdown
 exit
 
-interface range FastEthernet0/2-24
+interface range FastEthernet0/2-9
 switchport mode access
 switchport access vlan 999
 shutdown
@@ -82,6 +82,12 @@ interface range FastEthernet0/10-12
 switchport mode access
 switchport access vlan 192
 no shutdown
+exit
+
+interface range FastEthernet0/13-24
+switchport mode access
+switchport access vlan 999
+shutdown
 exit
 
 ntp server 1.1.1.1

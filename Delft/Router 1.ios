@@ -75,6 +75,7 @@ exit
 interface Loopback0
 description Management interface
 ipv6 enable
+ipv6 ospf 1 area 0
  ip address 192.168.255.0 255.255.255.255
  ipv6 address 2001:f187:0:1::0/128
 exit
@@ -88,27 +89,15 @@ interface Tunnel100
  no shutdown
 exit
 
-interface Tunnel200
- ip address 172.16.0.9 255.255.255.252
- ipv6 address 2001:f187:ffff:3::1/64
- tunnel source Serial0/1/0
- tunnel destination 145.34.47.2
- tunnel mode gre ip
- no shutdown
-exit
-
 router ospf 1
 default-information originate
- passive-interface default
- no passive-interface GigabitEthernet0/0/0
- no passive-interface GigabitEthernet0/0/1
- no passive-interface Serial0/1/1
  network 192.168.0.0 0.0.0.3 area 0
  network 192.168.0.8 0.0.0.3 area 0
  network 192.168.0.16 0.0.0.3 area 0
  network 192.168.255.0 0.0.0.0 area 0
  network 172.16.0.0 0.0.0.3 area 0
  network 172.16.0.8 0.0.0.3 area 0
+ network 145.34.45.0 0.0.0.3 area 0
 exit
 
 ipv6 router ospf 1
