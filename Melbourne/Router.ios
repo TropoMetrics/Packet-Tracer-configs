@@ -90,3 +90,4 @@ ip dhcp pool VLAN30-MELBOURNE
 
  ip dhcp excluded-address 10.30.10.1 10.30.10.10
 
+ntp server 1.1.1.1

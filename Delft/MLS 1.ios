@@ -389,3 +389,5 @@ ipv6 access-list VLAN-ISOLATION-V6
 
  permit ipv6 any any
 exit
+
+ntp server 1.1.1.1

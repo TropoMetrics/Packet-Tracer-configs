@@ -76,3 +76,5 @@ interface range FastEthernet0/13-14
  !switchport port-security mac-address sticky
  no shutdown
 exit
+
+ntp server 1.1.1.1

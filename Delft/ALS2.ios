@@ -63,3 +63,5 @@ switchport mode access
 switchport access vlan 999
 shutdown
 exit
+
+ntp server 1.1.1.1

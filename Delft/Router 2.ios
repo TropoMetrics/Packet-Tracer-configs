@@ -139,3 +139,5 @@ no synchronization
   network 2001:f187:0:1090::/64
  exit
 exit
+
+ntp server 1.1.1.1

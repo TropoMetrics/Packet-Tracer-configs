@@ -83,3 +83,5 @@ switchport mode access
 switchport access vlan 192
 no shutdown
 exit
+
+ntp server 1.1.1.1

@@ -107,3 +107,7 @@ ip nat outside
 ip nat inside source list 1 interface Gig0/0/1 overload
 
 ip route 0.0.0.0 0.0.0.0 dhcp
+
+ntp master 3
+exit
+clock set 20:10:00 jan 19 2026
