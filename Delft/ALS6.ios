@@ -53,13 +53,13 @@ exit
 
 interface range GigabitEthernet0/1-2
 switchport mode trunk
-!switchport trunk allowed vlan 170,180,190,191,192
+switchport trunk allowed vlan 170,180,190,191,192
 no shutdown
 exit
 
 interface FastEthernet0/1
 switchport mode trunk
-!switchport trunk allowed vlan 170,180,190,191,192
+switchport trunk allowed vlan 170,180,190,191,192
 switchport trunk native vlan 192
 no shutdown
 exit
@@ -74,13 +74,4 @@ interface range FastEthernet0/11-12
 switchport mode access
 switchport access vlan 192
 no shutdown
-exit
-
-interface FastEthernet0/24
- switchport mode access
- switchport access vlan 120
- switchport port-security
- switchport port-security maximum 1
- switchport port-security mac-address sticky
- no shutdown
 exit

@@ -41,16 +41,7 @@ interface range GigabitEthernet0/1-2
  no shutdown
 exit
 
-interface FastEthernet0/1
- switchport mode access
- switchport access vlan 120
- switchport port-security
- switchport port-security maximum 1
- switchport port-security mac-address sticky
- no shutdown
-exit
-
-interface FastEthernet0/2
+interface range FastEthernet0/1-2
  switchport mode access
  switchport access vlan 120
  switchport port-security
