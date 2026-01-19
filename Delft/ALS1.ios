@@ -33,12 +33,16 @@ vlan 110
 name Management
 exit
 
+vlan 120
+name Marketing
+exit
+
 vlan 999
 name BLACKHOLE
 exit
 
 interface loopback0
-ip address 192.168.255.100255.255.255.252
+ip address 192.168.255.100 255.255.255.255
 ipv6 address 2001:f187:0:1::100/128
 no shutdown
 exit

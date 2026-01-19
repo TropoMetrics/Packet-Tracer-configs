@@ -38,7 +38,7 @@ name BLACKHOLE
 exit
 
 interface loopback0
-ip address 192.168.255.102 255.255.255.252
+ip address 192.168.255.102 255.255.255.255
 ipv6 address 2001:f187:0:1::102/128
 no shutdown
 exit
