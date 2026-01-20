@@ -65,6 +65,8 @@ shutdown
 exit
 
 interface vlan 110
+ ip access-group V110_USER_FILTER in
+ ip policy route-map PBR_TO_R1
 ip helper-address 10.10.80.11
  ipv6 enable
  ipv6 address 2001:f187:0:1010::1/64
@@ -79,6 +81,8 @@ ip helper-address 10.10.80.11
 exit
 
 interface vlan 120
+ip access-group V120_USER_FILTER in
+ip policy route-map PBR_TO_R1
 ip helper-address 10.10.80.11
 ipv6 enable
  ipv6 address 2001:f187:0:1020::1/64
@@ -121,8 +125,11 @@ ipv6 enable
 exit
 
 interface vlan 191
+ip access-group DMZ_OUT in
 ip helper-address 10.10.80.11
 ipv6 enable
+ipv6 address 2001:f187:0:1091::1/64
+ip address 145.34.44.2 255.255.255.0
  standby 191 ip 145.34.44.1
  standby 191 priority 90
  standby 191 preempt
@@ -221,16 +228,17 @@ router ospf 1
  no passive-interface GigabitEthernet1/0/1
  no passive-interface GigabitEthernet1/0/2
  no passive-interface Port-channel10
+ network 145.34.44.0 0.0.0.255 area 0
  network 192.168.0.0 0.0.0.3 area 0
  network 192.168.0.4 0.0.0.3 area 0
  network 192.168.0.20 0.0.0.3 area 0
  network 192.168.255.50 0.0.0.0 area 0
- network 10.10.10.0 255.255.255.0 area 0
- network 10.10.20.0 255.255.255.0 area 0
- network 10.10.80.0 255.255.255.0 area 0
- network 10.10.90.0 255.255.255.0 area 0
- network 10.10.91.0 255.255.255.0 area 0
- network 10.10.92.0 255.255.255.0 area 0
+ network 10.10.10.0 0.0.0.255 area 0
+ network 10.10.20.0 0.0.0.255 area 0
+ network 10.10.80.0 0.0.0.255 area 0
+ network 10.10.90.0 0.0.0.255 area 0
+ network 10.10.91.0 0.0.0.255 area 0
+ network 10.10.92.0 0.0.0.255 area 0
 exit
 
 ipv6 router ospf 1
@@ -244,3 +252,37 @@ snmp-server community R1rw rw
 
 no ip http server
 no ip http secure-server
+
+ip access-list extended V110_USER_FILTER
+ permit ip any host 10.10.10.1
+ permit ip any 10.10.80.0 0.0.0.255
+ deny ip any 10.0.0.0 0.255.255.255
+ deny ip any 192.168.0.0 0.0.255.255
+ permit ip any any
+exit
+
+ip access-list extended V120_USER_FILTER
+ permit ip any host 10.10.20.1
+ permit ip any 10.10.80.0 0.0.0.255
+ deny ip any 10.0.0.0 0.255.255.255
+ deny ip any 192.168.0.0 0.0.255.255
+ permit ip any any
+exit
+
+ip access-list extended DMZ_OUT
+ remark === Deny access to internal networks ===
+ deny ip 145.34.44.0 0.0.0.255 10.0.0.0 0.255.255.255
+ deny ip 145.34.44.0 0.0.0.255 192.168.0.0 0.0.255.255
+ remark === Allow internet/external traffic ===
+ permit ip 145.34.44.0 0.0.0.255 any
+exit
+
+ ip access-list extended INSIDE_TO_DMZ
+ permit ip 10.10.10.0 0.0.0.255 145.34.44.0 0.0.0.255
+ permit ip 10.10.20.0 0.0.0.255 145.34.44.0 0.0.0.255
+exit
+
+route-map PBR_TO_R1 permit 10
+ match ip address INSIDE_TO_DMZ
+ set ip next-hop 192.168.0.1
+exit
