@@ -43,12 +43,6 @@ vlan 999
 name BLACKHOLE
 exit
 
-interface loopback0
-ip address 192.168.255.100 255.255.255.255
-ipv6 address 2001:f187:0:1::100/128
-no shutdown
-exit
-
 interface range GigabitEthernet0/1-2
  switchport mode trunk
  switchport trunk allowed vlan 110,120
