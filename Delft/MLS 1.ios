@@ -30,6 +30,8 @@ crypto key generate rsa
 ip routing  
 ipv6 unicast-routing
 
+spanning-tree mode rapid-pvst
+
 vlan 110
 name Management
 exit

@@ -29,6 +29,8 @@ crypto key generate rsa
 
 sdm prefer dual-ipv4-and-ipv6
 
+spanning-tree mode rapid-pvst
+
 vlan 210
 name Marketing
 exit

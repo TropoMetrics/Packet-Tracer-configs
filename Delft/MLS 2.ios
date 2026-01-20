@@ -30,6 +30,8 @@ crypto key generate rsa
 ip routing
 ipv6 unicast-routing
 
+spanning-tree mode rapid-pvst
+
 vlan 110
 name Management
 exit
@@ -65,7 +67,7 @@ exit
 interface vlan 110
 ip helper-address 10.10.80.11
 ipv6 enable
- ipv6 address 2001:f187:0:1010::1/64
+ ipv6 address 2001:f187:0:1010::2/64
  ip address 10.10.10.3 255.255.255.0
  standby 110 ip 10.10.10.1
  standby 110 priority 90
@@ -78,7 +80,7 @@ exit
 interface vlan 120
 ip helper-address 10.10.80.11
 ipv6 enable
- ipv6 address 2001:f187:0:1020::1/64
+ ipv6 address 2001:f187:0:1020::2/64
  ip address 10.10.20.3 255.255.255.0
  standby 120 ip 10.10.20.1
  standby 120 priority 90
@@ -91,7 +93,7 @@ exit
 interface vlan 180
 ip helper-address 10.10.80.11
 ipv6 enable
- ipv6 address 2001:f187:0:1080::1/64
+ ipv6 address 2001:f187:0:1080::2/64
  ip address 10.10.80.3 255.255.255.0
  standby 180 ip 10.10.80.1
  standby 180 priority 110
@@ -104,7 +106,7 @@ exit
 interface vlan 190
 ip helper-address 10.10.80.11
 ipv6 enable
- ipv6 address 2001:f187:0:1090::1/64
+ ipv6 address 2001:f187:0:1090::2/64
  ip address 10.10.90.3 255.255.255.0
  standby 190 ip 10.10.90.1
  standby 190 priority 110
@@ -117,7 +119,7 @@ exit
 interface vlan 191
 ip helper-address 10.10.80.11
 ipv6 enable
- ipv6 address 2001:f187:0:1091::1/64
+ ipv6 address 2001:f187:0:1091::2/64
  ip address 145.34.44.3 255.255.255.0
  standby 191 ip 145.34.44.1
  standby 191 priority 110
@@ -131,7 +133,7 @@ exit
 interface vlan 192
 ip helper-address 10.10.80.11
 ipv6 enable
- ipv6 address 2001:f187:0:1092::1/64
+ ipv6 address 2001:f187:0:1092::2/64
  ip address 10.10.92.3 255.255.255.0
  standby 192 ip 10.10.92.1
  standby 192 priority 110

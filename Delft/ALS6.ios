@@ -29,9 +29,7 @@ crypto key generate rsa
 
 sdm prefer dual-ipv4-and-ipv6 default
 
-vlan 170
-name Calcnet
-exit
+spanning-tree mode rapid-pvst
 
 vlan 180
 name Intranet
@@ -61,18 +59,24 @@ exit
 
 interface range GigabitEthernet0/1-2
 switchport mode trunk
-switchport trunk allowed vlan 170,180,190,191,192
+switchport trunk allowed vlan 180,190,191,192
 no shutdown
 exit
 
 interface range FastEthernet0/1-2
 switchport mode trunk
-switchport trunk allowed vlan 170,180,190,191,192
+switchport trunk allowed vlan 180,190,191,192
 switchport trunk native vlan 192
 no shutdown
 exit
 
-interface range FastEthernet0/3-9
+interface range FastEthernet0/3-5
+switchport mode access
+switchport access vlan 192
+no shutdown
+exit
+
+interface range FastEthernet0/6-9
 switchport mode access
 switchport access vlan 999
 shutdown

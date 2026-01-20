@@ -1,6 +1,6 @@
 enable
 configure terminal
-hostname ISP-Router
+hostname KaiLaptop
 no ip domain-lookup
 banner motd #Verboden toegang voor onbevoegde!#
 line console 0
@@ -60,7 +60,6 @@ ipv6 enable
 exit
 
 ipv6 route 2001:f187:0:2010::/64 GigabitEthernet0/0/0 fe80::31
-ipv6 route 2001:f187:0:3010::/64 GigabitEthernet0/0/1 fe80::41
 
 router bgp 100
 bgp log-neighbor-changes
