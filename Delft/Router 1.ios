@@ -132,4 +132,4 @@ no synchronization
  exit
 exit
 
-ntp server 1.1.1.1
+ntp server 10.10.80.11

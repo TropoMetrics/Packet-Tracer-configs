@@ -52,9 +52,6 @@ exit
 interface range FastEthernet0/1
  switchport mode access
  switchport access vlan 210
- switchport port-security
- switchport port-security maximum 1
- switchport port-security mac-address sticky
  no shutdown
 exit
 
@@ -62,9 +59,6 @@ interface range FastEthernet0/2
 !link naar de acces points
  switchport mode access
  switchport access vlan 210
- no switchport port-security
- no switchport port-security maximum 1
- no switchport port-security mac-address sticky
  no shutdown
 exit
 
@@ -74,4 +68,4 @@ interface range FastEthernet0/3-24
  shutdown
 exit
 
-ntp server 1.1.1.1
+ntp server 10.10.80.11

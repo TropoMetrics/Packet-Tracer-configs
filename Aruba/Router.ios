@@ -90,4 +90,4 @@ ip dhcp pool VLAN20-ARUBA
 
  ip dhcp excluded-address 10.20.10.1 10.20.10.10
 
-ntp server 1.1.1.1
+ntp server 10.10.80.11
