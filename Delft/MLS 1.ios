@@ -151,6 +151,8 @@ description Link to ALS1
 switchport
 switchport mode trunk
 switchport trunk allowed vlan 110,120
+switchport nonegotiate
+no cdp enable
 no shutdown
 exit
 
@@ -159,6 +161,8 @@ description Link to ALS6
 switchport
 switchport mode trunk
 switchport trunk allowed vlan 180,190,191,192
+switchport nonegotiate
+no cdp enable
 no shutdown
 exit
 
@@ -190,6 +194,9 @@ exit
 interface range GigabitEthernet1/0/5-18
 switchport mode access
 switchport access vlan 999
+switchport nonegotiate
+no cdp enable
+spanning-tree bpduguard enable
 shutdown
 exit
 
@@ -210,6 +217,10 @@ ipv6 ospf 1 area 0
 exit
 
 router ospf 1
+ passive-interface default
+ no passive-interface GigabitEthernet1/0/1
+ no passive-interface GigabitEthernet1/0/2
+ no passive-interface Port-channel10
  network 192.168.0.0 0.0.0.3 area 0
  network 192.168.0.4 0.0.0.3 area 0
  network 192.168.0.20 0.0.0.3 area 0

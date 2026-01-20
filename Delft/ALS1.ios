@@ -52,30 +52,44 @@ exit
 interface range GigabitEthernet0/1-2
  switchport mode trunk
  switchport trunk allowed vlan 110,120
+ switchport nonegotiate
+ no cdp enable
  no shutdown
 exit
 
 interface range FastEthernet0/1-2
  switchport mode access
  switchport access vlan 110
+ switchport nonegotiate
+ no cdp enable
+ spanning-tree bpduguard enable
  no shutdown
 exit
 
 interface range FastEthernet0/3-12
 switchport mode access
 switchport access vlan 999
+switchport nonegotiate
+no cdp enable
+spanning-tree bpduguard enable
 shutdown
 exit
 
 interface range FastEthernet0/13-14
  switchport mode access
  switchport access vlan 120
+ switchport nonegotiate
+ no cdp enable
+ spanning-tree bpduguard enable
  no shutdown
 exit
 
 interface range FastEthernet0/15-24
 switchport mode access
 switchport access vlan 999
+switchport nonegotiate
+no cdp enable
+spanning-tree bpduguard enable
 shutdown
 exit
 
