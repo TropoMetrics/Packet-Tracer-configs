@@ -130,3 +130,9 @@ no synchronization
 exit
 
 ntp server 10.10.80.11
+
+snmp-server community R1 ro
+snmp-server community R1rw rw
+
+no ip http server
+no ip http secure-server
