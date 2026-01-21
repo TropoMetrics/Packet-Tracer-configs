@@ -84,6 +84,7 @@ access-list 1 permit any
 
 interface GigabitEthernet 0/0/1
 ip address dhcp
+ipv6 nd ra suppress
 no shutdown
 exit
 
