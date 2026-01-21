@@ -92,8 +92,8 @@ default-information originate
  no passive-interface GigabitEthernet0/0/0
  no passive-interface GigabitEthernet0/0/1
  no passive-interface Serial0/1/1
- network 192.168.0.0 0.0.0.3 area 0
- network 192.168.0.8 0.0.0.3 area 0
+ network 192.168.0.4 0.0.0.3 area 0
+ network 192.168.0.12 0.0.0.3 area 0
  network 192.168.0.16 0.0.0.3 area 0
  network 192.168.255.1 0.0.0.0 area 0
  network 172.16.0.4 0.0.0.3 area 0

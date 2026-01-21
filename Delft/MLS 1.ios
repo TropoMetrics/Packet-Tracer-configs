@@ -193,7 +193,7 @@ exit
 
 interface range GigabitEthernet1/0/3-4
 description Etherchannel to MLS 1 Delft
- no switchport
+ switchport
  channel-group 10 mode active
  no shutdown
 exit
@@ -207,12 +207,10 @@ spanning-tree bpduguard enable
 shutdown
 exit
 
-interface Port-channel 10
-description Etherchannel ip to MLS 1 Delft
- ip address 192.168.0.21 255.255.255.252
- ipv6 enable
- ipv6 ospf 1 area 0
- no shutdown
+interface Port-channel10
+ no ip address
+ switchport
+ switchport mode trunk
 exit
 
 interface Loopback0
