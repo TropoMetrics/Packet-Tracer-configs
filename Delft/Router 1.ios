@@ -35,16 +35,7 @@ ip access-list extended NAT-ACL
 
 ip nat inside source list NAT-ACL interface Serial0/1/0 overload
 
-ip access-list extended INSIDE_TO_DMZ
- permit ip 10.10.10.0 0.0.0.255 145.34.44.0 0.0.0.255
- permit ip 10.10.20.0 0.0.0.255 145.34.44.0 0.0.0.255
-
-route-map DMZ_HAIRPIN_TO_ISP permit 10
- match ip address INSIDE_TO_DMZ
- set ip next-hop 145.34.45.1
-
 interface GigabitEthernet0/0/0
-ip policy route-map DMZ_HAIRPIN_TO_ISP
 description Link to MLS 1 Delft
  ip address 192.168.0.1 255.255.255.252
  ipv6 enable
@@ -54,7 +45,6 @@ description Link to MLS 1 Delft
 exit
 
 interface GigabitEthernet0/0/1
-ip policy route-map DMZ_HAIRPIN_TO_ISP
 description Link to MLS 2 Delft
  ip address 192.168.0.9 255.255.255.252
  ipv6 enable

@@ -39,6 +39,11 @@ vlan 999
 name BLACKHOLE
 exit
 
+interface vlan 210
+ip address 10.20.10.5 255.255.255.0
+no shutdown
+exit
+
 interface GigabitEthernet0/1
  switchport mode access
  switchport access vlan 210

@@ -263,21 +263,3 @@ ip access-list extended V120_USER_FILTER
  deny ip any 192.168.0.0 0.0.255.255
  permit ip any any
 exit
-
-ip access-list extended DMZ_OUT
- remark === Deny access to internal networks ===
- deny ip 145.34.44.0 0.0.0.255 10.0.0.0 0.255.255.255
- deny ip 145.34.44.0 0.0.0.255 192.168.0.0 0.0.255.255
- remark === Allow internet/external traffic ===
- permit ip 145.34.44.0 0.0.0.255 any
-exit
-
- ip access-list extended INSIDE_TO_DMZ
- permit ip 10.10.10.0 0.0.0.255 145.34.44.0 0.0.0.255
- permit ip 10.10.20.0 0.0.0.255 145.34.44.0 0.0.0.255
-exit
-
-route-map PBR_TO_R1 permit 10
- match ip address INSIDE_TO_DMZ
- set ip next-hop 192.168.0.13
-exit
