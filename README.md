@@ -1,24 +1,24 @@
-# 🌐 Packet Tracer Network Configurations
+# Packet Tracer Network Configurations
 
 A comprehensive enterprise network topology for Cisco Packet Tracer featuring dual-stack networking, redundant routing, site-to-site VPN, and enterprise-grade security. This multi-site network includes Delft (main campus), Aruba (branch office), Melbourne (international office), and ISP connectivity with BGP, OSPF, and HSRP.
 
-## ✨ Features
+## Features
 
-### 🏢 Multi-Site Architecture
+### Multi-Site Architecture
 - **Four-Site Topology**: Delft main campus, Aruba branch office, Melbourne international office, and ISP router
 - **Redundant Design**: Dual edge routers at Delft with automatic failover
 - **Site-to-Site VPN**: IPsec/GRE tunnels connecting all locations
 - **Scalable Infrastructure**: Layer 3 switching with inter-VLAN routing
 - **Global Presence**: Multi-continent network spanning Europe, Caribbean, and Australia
 
-### 🔄 Routing & Switching
+### Routing & Switching
 - **BGP (AS 100/110)**: Internet connectivity with dual-stack peering
 - **OSPF Area 0**: Internal routing at Delft site
 - **HSRP Gateway Redundancy**: Automatic failover for first-hop routing
 - **Policy-Based Routing**: Traffic engineering on MLS switches
 - **Static Routes**: Floating routes with administrative distance for backup paths
 
-### 🔒 Security Features
+### Security Features
 - **AAA Authentication**: Centralized authentication with local database
 - **SSH-Only Access**: 2048-bit RSA keys, no Telnet
 - **Access Control Lists**: NAT filtering and inter-VLAN security
@@ -26,20 +26,20 @@ A comprehensive enterprise network topology for Cisco Packet Tracer featuring du
 - **VLAN Segmentation**: Blackhole VLAN (999) for unused ports
 - **Banner Warnings**: MOTD configured on all devices
 
-### 🌐 Network Services
+### Network Services
 - **DHCP Services**: Server on Aruba router, relay on MLS switches
 - **NTP Synchronization**: Time services at 10.10.80.11
 - **SNMP Monitoring**: Read-only and read-write communities configured
 - **DNS Configuration**: Google DNS (8.8.8.8) for name resolution
 - **NAT Overload**: PAT for internet connectivity with exception lists
 
-### 📡 Dual-Stack Networking
+### Dual-Stack Networking
 - **IPv4 & IPv6**: Full dual-stack implementation across all sites
 - **IPv6 OSPFv3**: Native IPv6 routing at Delft
 - **Link-Local Addressing**: fe80::/10 on all WAN links
 - **IPv6 Static Routes**: Configured for Aruba site connectivity
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -50,7 +50,7 @@ A comprehensive enterprise network topology for Cisco Packet Tracer featuring du
 ### Quick Start
 
 1. **Clone the repository**
-   ```bash
+```bash
    git clone https://github.com/TropoMetrics/Packet-Tracer-configs.git
    cd Packet-Tracer-configs
    ```
@@ -71,7 +71,7 @@ A comprehensive enterprise network topology for Cisco Packet Tracer featuring du
    - Or use Packet Tracer's "Load Script" feature
 
 5. **Verify connectivity**
-   ```bash
+```bash
    # Test basic connectivity
    ping 1.1.1.1
    
@@ -97,7 +97,7 @@ For best results, configure devices in this sequence:
 5. **Aruba Router & Switch** - Completes branch office setup with VPN tunnels
 6. **Melbourne Router & Switch** - Configures international office with VPN connectivity
 
-## 🗺️ Network Topology
+## Network Topology
 
 ```
                     Internet (1.1.1.1/32)
@@ -136,7 +136,7 @@ For best results, configure devices in this sequence:
     - Melbourne ↔ Delft1/Delft2 (GRE/IPsec)
 ```
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Packet-Tracer-configs/
@@ -154,7 +154,7 @@ Packet-Tracer-configs/
     └── ALS6.ios             #   - Access switch 6
 ```
 
-## 📂 Directory Structure
+## Directory Structure
 
 ```
 Packet-Tracer-configs/
@@ -172,12 +172,12 @@ Packet-Tracer-configs/
     └── ALS6.ios             # Access Layer Switch 6
 ```
 
-## 🏢 Site Configurations
+## Site Configurations
 
 ### ISP Router
 - **Hostname:** KaiLaptop
 - **Role:** Internet service provider edge router
-- **WAN Links:** 
+- **WAN Links:**
   - Serial0/1/0: 145.34.45.0/30 → Router 1 Delft
   - Serial0/1/1: 145.34.45.4/30 → Router 2 Delft
   - GigabitEthernet0/0/0: 145.34.46.0/30 → Router Aruba
@@ -253,7 +253,7 @@ International office in Australia with similar topology to Aruba.
 - **Rapid-PVST** spanning tree
 - **Loopback address:** 192.168.253.100
 
-## ✨ Key Features
+## Key Features
 
 ### High Availability
 - **HSRP** on MLS switches for gateway redundancy
@@ -278,7 +278,7 @@ International office in Australia with similar topology to Aruba.
 - **DNS** configuration (8.8.8.8)
 - **SNMP monitoring** (community: R1/R1rw)
 
-## �️ Technology Stack
+## � Technology Stack
 
 ### Network Devices
 
@@ -319,7 +319,7 @@ International office in Australia with similar topology to Aruba.
   - Aruba: 2 VLANs (210, 999)
   - Melbourne: 2 VLANs (310, 999)
 
-## �🔢 IP Addressing Scheme
+## � IP Addressing Scheme
 
 ### IPv4 Networks
 
@@ -442,7 +442,7 @@ International office in Australia with similar topology to Aruba.
 - **ISP Loopback:** 2001:db8:ffff::1/128
 - **Link-local:** fe80::/10 for all WAN links
 
-## 🏷️ VLANs Summary
+## VLANs Summary
 
 ### Delft Site
 
@@ -484,7 +484,7 @@ International office in Australia with similar topology to Aruba.
 **Management:**
 - VLAN 999: BLACKHOLE (unused ports)
 
-## 🔒 Security Features
+## Security Features
 
 1. **Authentication:**
    - Enable secret: `class`
@@ -508,7 +508,7 @@ International office in Australia with similar topology to Aruba.
    - BPDU guard on access ports
    - CDP disabled on edge interfaces
 
-## 🔄 Routing Protocols
+## Routing Protocols
 
 ### BGP (Border Gateway Protocol)
 - **ISP AS:** 100
@@ -531,7 +531,7 @@ International office in Australia with similar topology to Aruba.
 - Configured on MLS switches
 - Route-map: `PBR_TO_R1`
 
-## 🚀 Usage Instructions
+## Usage Instructions
 
 ### Importing into Packet Tracer
 
@@ -586,7 +586,7 @@ show ip bgp summary
   - User: `user` / `cisc`
 - **SNMP Communities:** R1 (RO), R1rw (RW)
 
-## 🧪 Testing & Verification
+## Testing & Verification
 
 ### Basic Connectivity Tests
 
@@ -692,7 +692,7 @@ show crypto ipsec sa
 show crypto isakmp sa
 ```
 
-## 📚 Learning Objectives
+## Learning Objectives
 
 This comprehensive network topology is designed to teach:
 
@@ -761,34 +761,34 @@ This comprehensive network topology is designed to teach:
 - **Change Management**: Structured configuration changes
 - **Security Hardening**: Disabling unnecessary services
 
-## 📝 Configuration Standards
+## Configuration Standards
 
 All devices follow these standards:
-- ✅ Hostname configured
-- ✅ Domain lookup disabled
-- ✅ MOTD banner set
-- ✅ Console timeout: 60 minutes
-- ✅ SSH enabled (2048-bit RSA)
-- ✅ AAA authentication
-- ✅ Logging synchronous
-- ✅ SNMP monitoring enabled
-- ✅ HTTP/HTTPS servers disabled
+- Hostname configured
+- Domain lookup disabled
+- MOTD banner set
+- Console timeout: 60 minutes
+- SSH enabled (2048-bit RSA)
+- AAA authentication
+- Logging synchronous
+- SNMP monitoring enabled
+- HTTP/HTTPS servers disabled
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Here's how you can help:
 
 1. **Fork the repository**
 2. **Create a feature branch**
-   ```bash
+```bash
    git checkout -b feature/improved-config
    ```
 3. **Commit your changes**
-   ```bash
+```bash
    git commit -m 'Add improved security configuration for Melbourne site'
    ```
 4. **Push to the branch**
-   ```bash
+```bash
    git push origin feature/improved-config
    ```
 5. **Open a Pull Request**
@@ -815,7 +815,7 @@ We welcome contributions in these areas:
 - Monitoring and logging enhancements
 - Automation scripts for deployment
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues and Solutions
 
@@ -1052,12 +1052,12 @@ debug standby packets
 undebug all
 ```
 
-## 📄 License
+## License
 
 This project is for educational purposes.
 
 ---
 
-**Authors:** Max Blaauw, Arne Jansonius, Kai Diemel & Ole Spiegelenberg  
-**Organization:** HHS (The Hague University of Applied Sciences)  
+**Authors:** Max Blaauw, Arne Jansonius, Kai Diemel & Ole Spiegelenberg
+**Organization:** HHS (The Hague University of Applied Sciences)
 **Domain:** hhs.nl
